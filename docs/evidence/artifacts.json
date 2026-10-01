@@ -1,0 +1,25 @@
+{
+  "runtime_sha256": "c078e20067dae706b83ff8ee7038fb6c31008bd22ca466a627bfa898e7f432c4",
+  "plugins": [
+    {
+      "host": "codex",
+      "file": "hyper-agentic-engineering-codex.zip",
+      "sha256": "ba03109dfdaf31fcf7a55e9a0032d0bc4c68013892e9259c98546620abbe94b2"
+    },
+    {
+      "host": "claude",
+      "file": "hyper-agentic-engineering-claude.zip",
+      "sha256": "e7a5f441462d689ba260a2466eaec7f5b3974f5025e8430faef5492df77dc3fb"
+    },
+    {
+      "host": "copilot",
+      "file": "hyper-agentic-engineering-copilot.zip",
+      "sha256": "5354f2a59eea09dd6fed83637bdad8401676ea2296d017bf5857de9937b9a5e4"
+    },
+    {
+      "host": "cowork",
+      "file": "hyper-agentic-engineering-cowork.zip",
+      "sha256": "771d7097858be07823167812878f88307f9fe5387e4cd3639e9ef3788c725cb3"
+    }
+  ]
+}

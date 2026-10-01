@@ -1,0 +1,36 @@
+{
+  "source": "https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/36841470968",
+  "commit": "af22d0ab3b48bc0a3d0080bbbe478d97b2bd84e2",
+  "results": [
+    {
+      "kind": "synthetic local recall; not end-to-end model-session latency",
+      "platform": "Linux",
+      "python": "3.11.16",
+      "notes": 1000,
+      "warm_runs": 20,
+      "cold_ms": 165.91,
+      "warm_median_ms": 56.17,
+      "warm_p95_ms": 91.52,
+      "top_match_correct": true,
+      "provider_calls": 0,
+      "generative_worker_calls": 0,
+      "max_excerpt_characters": 3600,
+      "response_characters": 442
+    },
+    {
+      "kind": "synthetic local recall; not end-to-end model-session latency",
+      "platform": "Linux",
+      "python": "3.12.14",
+      "notes": 1000,
+      "warm_runs": 20,
+      "cold_ms": 392.01,
+      "warm_median_ms": 111.99,
+      "warm_p95_ms": 125.35,
+      "top_match_correct": true,
+      "provider_calls": 0,
+      "generative_worker_calls": 0,
+      "max_excerpt_characters": 3600,
+      "response_characters": 442
+    }
+  ]
+}

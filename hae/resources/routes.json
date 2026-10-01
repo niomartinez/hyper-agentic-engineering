@@ -1,0 +1,133 @@
+{
+  "bug": {
+    "candidates": [
+      "diagnosing-bugs"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Diagnose a bug"
+  },
+  "tests": {
+    "candidates": [
+      "tdd"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Behavior tests"
+  },
+  "architecture": {
+    "candidates": [
+      "codebase-design",
+      "domain-modeling"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Architecture and domain boundaries"
+  },
+  "review": {
+    "candidates": [
+      "code-review"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Review and merge conflicts"
+  },
+  "merge": {
+    "candidates": [
+      "resolving-merge-conflicts"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Review and merge conflicts"
+  },
+  "research": {
+    "candidates": [
+      "research"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Research and prototypes"
+  },
+  "prototype": {
+    "candidates": [
+      "prototype"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Research and prototypes"
+  },
+  "agent-docs": {
+    "candidates": [
+      "writing-for-agents"
+    ],
+    "family": "matt-pocock",
+    "workflow": "Delivery and continuity"
+  },
+  "ui-new": {
+    "candidates": [
+      "design-taste-frontend",
+      "taste"
+    ],
+    "family": "taste",
+    "workflow": "UI and documents"
+  },
+  "ui-existing": {
+    "candidates": [
+      "impeccable"
+    ],
+    "family": "impeccable",
+    "workflow": "UI and documents"
+  },
+  "obsidian": {
+    "candidates": [
+      "obsidian-markdown",
+      "obsidian-cli"
+    ],
+    "family": "obsidian",
+    "workflow": "Delivery and continuity"
+  },
+  "graph": {
+    "candidates": [
+      "graphify"
+    ],
+    "family": "graphify",
+    "workflow": "Architecture and domain boundaries",
+    "explicit_only": true
+  },
+  "karpathy": {
+    "candidates": [
+      "karpathy-guidelines",
+      "andrej-karpathy-skills"
+    ],
+    "family": "karpathy-inspired",
+    "workflow": "Plan and implement",
+    "explicit_only": true
+  },
+  "docx": {
+    "candidates": [
+      "docx"
+    ],
+    "family": "anthropic",
+    "workflow": "UI and documents",
+    "prefer_host_native": true
+  },
+  "pdf": {
+    "candidates": [
+      "pdf"
+    ],
+    "family": "anthropic",
+    "workflow": "UI and documents",
+    "prefer_host_native": true
+  },
+  "sheets": {
+    "candidates": [
+      "spreadsheets",
+      "xlsx"
+    ],
+    "family": "anthropic",
+    "workflow": "UI and documents",
+    "prefer_host_native": true
+  },
+  "slides": {
+    "candidates": [
+      "presentations",
+      "pptx"
+    ],
+    "family": "anthropic",
+    "workflow": "UI and documents",
+    "prefer_host_native": true
+  }
+}

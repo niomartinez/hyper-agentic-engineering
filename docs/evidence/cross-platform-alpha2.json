@@ -1,0 +1,133 @@
+{
+  "source": "https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/36849451698",
+  "commit": "74f970f100be99bdf1850d34c81313e512c03d56",
+  "kind": "Core, generated command execution and synthetic recall; not live authenticated agent sessions",
+  "jobs": {
+    "core (windows-latest, 3.11)": {
+      "tests": 68,
+      "test_seconds": 54.699,
+      "tests_passed": true,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Windows",
+        "python": "3.11.9",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 1282.55,
+        "warm_median_ms": 306.5,
+        "warm_p95_ms": 438.33,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    "core (macos-latest, 3.11)": {
+      "tests": 68,
+      "test_seconds": 3.437,
+      "tests_passed": true,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Darwin",
+        "python": "3.11.9",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 126.34,
+        "warm_median_ms": 33.05,
+        "warm_p95_ms": 41.38,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    "core (windows-latest, 3.12)": {
+      "tests": 68,
+      "test_seconds": 52.013,
+      "tests_passed": true,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Windows",
+        "python": "3.12.10",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 681.36,
+        "warm_median_ms": 139.41,
+        "warm_p95_ms": 162.23,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    "core (ubuntu-latest, 3.11)": {
+      "tests": 68,
+      "test_seconds": 5.313,
+      "tests_passed": true,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Linux",
+        "python": "3.11.16",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 344.93,
+        "warm_median_ms": 70.5,
+        "warm_p95_ms": 140.06,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    "core (ubuntu-latest, 3.12)": {
+      "tests": 68,
+      "test_seconds": 6.091,
+      "tests_passed": true,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Linux",
+        "python": "3.12.14",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 457.51,
+        "warm_median_ms": 125.66,
+        "warm_p95_ms": 131.0,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    "core (macos-latest, 3.12)": {
+      "tests": 68,
+      "test_seconds": 4.238,
+      "tests_passed": true,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Darwin",
+        "python": "3.12.10",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 194.89,
+        "warm_median_ms": 66.62,
+        "warm_p95_ms": 76.19,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    }
+  }
+}

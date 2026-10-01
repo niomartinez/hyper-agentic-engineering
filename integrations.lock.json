@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "checked": "2026-10-01",
+  "behavior": "Reference catalog only; no code bundled or installed. Review selected paths and licenses at these commits before use.",
+  "sources": [
+    {
+      "name": "ponytail",
+      "repository": "https://github.com/DietrichGebert/ponytail",
+      "commit": "e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156",
+      "tree": "https://github.com/DietrichGebert/ponytail/tree/e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156",
+      "license_observation": "MIT",
+      "notes": "Optional minimal-change workflow",
+      "enabled_by_default": false
+    },
+    {
+      "name": "caveman",
+      "repository": "https://github.com/JuliusBrussee/caveman",
+      "commit": "f5d729488caa8f6a5b6c8086fe2cccd3e8a63f91",
+      "tree": "https://github.com/JuliusBrussee/caveman/tree/f5d729488caa8f6a5b6c8086fe2cccd3e8a63f91",
+      "license_observation": "Mixed: MIT skill; BSL Engine",
+      "notes": "Select the skill only; do not bundle Engine/proxy components",
+      "enabled_by_default": false
+    },
+    {
+      "name": "matt-pocock",
+      "repository": "https://github.com/mattpocock/skills",
+      "commit": "d81f3a183412e71a5b1e84ca21bc1a35eea03a60",
+      "tree": "https://github.com/mattpocock/skills/tree/d81f3a183412e71a5b1e84ca21bc1a35eea03a60",
+      "license_observation": "MIT",
+      "notes": "Select relevant skills; do not load the entire library",
+      "enabled_by_default": false
+    },
+    {
+      "name": "obsidian",
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "commit": "3ccff5338ea700537839b21900aa5358a0402c98",
+      "tree": "https://github.com/kepano/obsidian-skills/tree/3ccff5338ea700537839b21900aa5358a0402c98",
+      "license_observation": "MIT",
+      "notes": "Optional Obsidian-specific editing",
+      "enabled_by_default": false
+    },
+    {
+      "name": "taste",
+      "repository": "https://github.com/Leonxlnx/taste-skill",
+      "commit": "ce26fc25c0e5e8cab638f883de62d9a86ee5e45b",
+      "tree": "https://github.com/Leonxlnx/taste-skill/tree/ce26fc25c0e5e8cab638f883de62d9a86ee5e45b",
+      "license_observation": "MIT",
+      "notes": "Optional new-UI guidance",
+      "enabled_by_default": false
+    },
+    {
+      "name": "impeccable",
+      "repository": "https://github.com/pbakaus/impeccable",
+      "commit": "c74755d920985f7a92cef691ca970ba95f90126e",
+      "tree": "https://github.com/pbakaus/impeccable/tree/c74755d920985f7a92cef691ca970ba95f90126e",
+      "license_observation": "Apache-2.0",
+      "notes": "Optional existing-UI improvement",
+      "enabled_by_default": false
+    },
+    {
+      "name": "anthropic",
+      "repository": "https://github.com/anthropics/skills",
+      "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "tree": "https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "license_observation": "Mixed; document skills source-available",
+      "notes": "Review the exact selected skill license; never blanket-relicense this repository",
+      "enabled_by_default": false
+    },
+    {
+      "name": "graphify",
+      "repository": "https://github.com/Graphify-Labs/graphify",
+      "commit": "ef4450d9c28acb2b8cdc22d369c1777b77148eef",
+      "tree": "https://github.com/Graphify-Labs/graphify/tree/ef4450d9c28acb2b8cdc22d369c1777b77148eef",
+      "license_observation": "Review selected component terms",
+      "notes": "Optional graph analysis, separate dependencies",
+      "enabled_by_default": false
+    },
+    {
+      "name": "karpathy-inspired",
+      "repository": "https://github.com/forrestchang/andrej-karpathy-skills",
+      "commit": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+      "tree": "https://github.com/forrestchang/andrej-karpathy-skills/tree/2c606141936f1eeef17fa3043a72095b4765b9c2",
+      "license_observation": "Review selected component terms",
+      "notes": "Community-maintained; not an official Karpathy release",
+      "enabled_by_default": false
+    }
+  ]
+}

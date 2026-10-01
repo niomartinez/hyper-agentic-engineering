@@ -1,0 +1,23 @@
+{
+  "name": "hyper-agentic-engineering",
+  "version": "0.1.0-alpha.3",
+  "description": "Portable memory, lean context and reliable handoffs for coding agents, with an optional general-work mode.",
+  "author": {
+    "name": "Nio Martinez"
+  },
+  "repository": "https://github.com/niomartinez/hyper-agentic-engineering",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Hyper Agentic Engineering",
+    "shortDescription": "Scoped memory and reliable agent handoffs",
+    "longDescription": "Add scoped Markdown memory, small approved checkpoints and portable team handoffs to an existing coding-agent setup. Includes reversible setup and an optional general-work mode.",
+    "developerName": "Nio Martinez",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Set up HAE for this engineering project.",
+      "Set up HAE for general project work."
+    ]
+  }
+}

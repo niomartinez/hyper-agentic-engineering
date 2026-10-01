@@ -1,0 +1,15 @@
+{
+  "kind": "synthetic local recall; not end-to-end model-session latency",
+  "platform": "Darwin",
+  "python": "3.14.7",
+  "notes": 1000,
+  "warm_runs": 20,
+  "cold_ms": 5451.97,
+  "warm_median_ms": 58.11,
+  "warm_p95_ms": 60.71,
+  "top_match_correct": true,
+  "provider_calls": 0,
+  "generative_worker_calls": 0,
+  "max_excerpt_characters": 3600,
+  "response_characters": 442
+}

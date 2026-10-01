@@ -1,0 +1,15 @@
+{
+  "approved": true,
+  "job_id": "atlas-offline-1",
+  "mode": "remember",
+  "project": "atlas",
+  "scope": "personal",
+  "source": "Current user decision",
+  "records": [
+    {
+      "title": "Offline drafts",
+      "summary": "Use SQLite for offline drafts.",
+      "next": "Verify reconnect behavior."
+    }
+  ]
+}
