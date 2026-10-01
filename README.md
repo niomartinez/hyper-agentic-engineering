@@ -4,6 +4,10 @@
 
 Portable memory, lean context, and reliable handoffs for coding agents.
 
+https://github.com/user-attachments/assets/aca2e712-1bbe-4c4d-97c8-1f3a47f98baa
+
+*34-second overview · Play with sound. Setup prompt below.*
+
 **Public alpha · engineering first · Python 3.11+ · no runtime dependencies.**
 
 HAE adds continuity to an existing Claude Code, Codex or Copilot setup. It preserves current instructions and hooks, keeps readable Markdown memory under your control, and records what another agent needs to resume. Obsidian is an optional viewer. An optional general-work mode uses project folders and deliverables without coding requirements.

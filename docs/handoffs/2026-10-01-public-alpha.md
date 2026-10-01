@@ -13,3 +13,11 @@ Runtime commit `082a919454496cea428ec504a59d262a60e921a1` passed 71 tests in eac
 ## Remaining work
 
 Authenticated host lifecycle acceptance, native hook trust, Cowork/WSL support, optional Jev evaluation and independent adoption remain unverified. Do not claim stable universal host support, measured total-token savings, encryption or an independent security audit. Read RELEASE-STATUS.md and SECURITY.md before extending claims. Source privacy and exact packaged contents must be rechecked for each release. Marketplace publication and contacting testers remain separate work.
+
+## README motion hero — 2026-10-01
+
+The owner requested the completed motion intro as a playable README hero. The README links to a GitHub-hosted video attachment beneath the tagline; the agent setup prompt remains below the introduction. GitHub's preview loaded a native player with controls and a 34-second duration. This is click-to-play, with no autoplay requirement.
+
+The reviewed export is 1920 × 1080 at 60 fps, H.264/AAC, 15,424,649 bytes. Sampled frames and scene text use synthetic project data and the existing public brand. Its SHA-256 is `348459d187fa89e0d5f56a331f246e42cdf9b60c4ccd5a8a0dfa3e9746adf326`. Attachment: https://github.com/user-attachments/assets/aca2e712-1bbe-4c4d-97c8-1f3a47f98baa.
+
+The rendered MP4 is hosted as an attachment rather than added to Git history or release packages. Motion source and intermediate renders belong to the separate motion-graphics work; this change only publishes the finished hero and its documentation. Remove the README attachment line and caption to revert the presentation.
