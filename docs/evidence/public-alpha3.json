@@ -1,0 +1,146 @@
+{
+  "release": "0.1.0a3",
+  "commit": "082a919454496cea428ec504a59d262a60e921a1",
+  "run_url": "https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/36863706202",
+  "jobs": [
+    {
+      "name": "core (macos-latest, 3.11)",
+      "job_id": 110373890363,
+      "conclusion": "success",
+      "tests": 71,
+      "test_seconds": 5.2,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Darwin",
+        "python": "3.11.9",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 161.85,
+        "warm_median_ms": 41.34,
+        "warm_p95_ms": 54.12,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    {
+      "name": "core (ubuntu-latest, 3.11)",
+      "job_id": 110373890594,
+      "conclusion": "success",
+      "tests": 71,
+      "test_seconds": 6.64,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Linux",
+        "python": "3.11.16",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 265.23,
+        "warm_median_ms": 70.14,
+        "warm_p95_ms": 144.57,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    {
+      "name": "core (ubuntu-latest, 3.12)",
+      "job_id": 110373890617,
+      "conclusion": "success",
+      "tests": 71,
+      "test_seconds": 8.358,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Linux",
+        "python": "3.12.14",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 837.05,
+        "warm_median_ms": 124.82,
+        "warm_p95_ms": 242.1,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    {
+      "name": "core (windows-latest, 3.12)",
+      "job_id": 110373890630,
+      "conclusion": "success",
+      "tests": 71,
+      "test_seconds": 51.245,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Windows",
+        "python": "3.12.10",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 824.12,
+        "warm_median_ms": 131.98,
+        "warm_p95_ms": 150.35,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    {
+      "name": "core (windows-latest, 3.11)",
+      "job_id": 110373890686,
+      "conclusion": "success",
+      "tests": 71,
+      "test_seconds": 45.373,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Windows",
+        "python": "3.11.9",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 1442.74,
+        "warm_median_ms": 310.32,
+        "warm_p95_ms": 338.71,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    },
+    {
+      "name": "core (macos-latest, 3.12)",
+      "job_id": 110373890828,
+      "conclusion": "success",
+      "tests": 71,
+      "test_seconds": 5.057,
+      "benchmark": {
+        "kind": "synthetic local recall; not end-to-end model-session latency",
+        "platform": "Darwin",
+        "python": "3.12.10",
+        "notes": 1000,
+        "warm_runs": 20,
+        "cold_ms": 192.12,
+        "warm_median_ms": 63.91,
+        "warm_p95_ms": 69.39,
+        "top_match_correct": true,
+        "irrelevant_matches": 0,
+        "provider_calls": 0,
+        "generative_worker_calls": 0,
+        "max_excerpt_characters": 3600,
+        "response_characters": 442
+      }
+    }
+  ],
+  "limits": "Synthetic fixtures and direct generated-runtime execution; not authenticated model-session acceptance."
+}

@@ -8,7 +8,7 @@ Users hand the [README prompt](README.md#give-this-to-your-agent) to their agent
 
 The standard-library core provides reversible plan/apply/doctor/rollback/uninstall, scoped Markdown memory, approved local saves, bounded recall, handoffs and explicit text backups. Engineering includes generalized practices and installed-skill routing. Packages use explicit shipping lists and include checksum manifests. Original code is MIT; upstream skills are references only, not bundled code.
 
-The 71-test suite adds release-boundary and complete packaged setup/recovery checks to the previously verified 68-test Windows/macOS/Linux core. See the [evidence record](docs/evidence/README.md) for actual runs and limits. Source, public history, commit metadata and nested artifacts are audited before publication. [Security boundaries](SECURITY.md) explain what those checks do and do not establish.
+The 71-test suite passed in all six Windows/macOS/Linux Python 3.11/3.12 jobs in [public CI](https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/36863706202), including release-boundary and complete packaged setup/recovery checks. See the [evidence record](docs/evidence/README.md) for actual runs and limits. Source, public history, commit metadata and nested artifacts are audited before publication. [Security boundaries](SECURITY.md) explain what those checks do and do not establish.
 
 ## Known alpha limitations
 

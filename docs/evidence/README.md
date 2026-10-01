@@ -2,7 +2,7 @@
 
 ## Public alpha 3
 
-Alpha 3 adds three tests for allowlisted shipping inputs, nested archive auditing, and the generated runtime’s plan/apply/save/recall/uninstall flow. All 71 tests passed locally on macOS Python 3.14.7. The public release will include a fresh six-job CI receipt. Earlier results below describe the private predecessor and are retained as historical measurements, not authenticated live host acceptance. — 2026-10-01
+Alpha 3 adds three tests for allowlisted shipping inputs, nested archive auditing, and the generated runtime’s plan/apply/save/recall/uninstall flow. All 71 tests passed locally on macOS Python 3.14.7. [Public CI run 36863706202](https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/36863706202) verified commit `082a919454496cea428ec504a59d262a60e921a1`: **71 tests passed in each of six Windows/macOS/Linux Python 3.11/3.12 jobs**, along with package builds, nested artifact audits and 1,000-note benchmarks. [Raw results](public-alpha3.json) preserve all timings. Each benchmark returned the expected note first, no irrelevant matches and zero provider calls. Earlier results below describe the private predecessor and are retained as historical measurements, not authenticated live host acceptance. — 2026-10-01
 
 This record distinguishes deterministic core tests, packaging checks and actual host sessions. The last category remains pending.
 
