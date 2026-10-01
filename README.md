@@ -1,3 +1,5 @@
+<p><img src="assets/brand/hae-icon.png" width="112" height="112" alt="Hyper Agentic Engineering icon: ivory rails joined by a copper bridge" /></p>
+
 # Hyper Agentic Engineering
 
 Portable memory, lean context, and reliable handoffs for coding agents.
