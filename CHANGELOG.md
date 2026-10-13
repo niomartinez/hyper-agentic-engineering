@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0a4.dev0 — Unreleased
+
+Optional full-team setup installs a hash-pinned snapshot of eligible upstream skills, curated host adapters, clean Obsidian/HAE memory files and Caveman/Ponytail full defaults. Four restricted document bundles remain references for native-tool routing. Private preparation validates source archives without executing them; installation and recovery preserve existing files and launcher permissions. Added native Obsidian readiness/vault-manager helpers and explicit vault targeting. Core remains the default. Live host acceptance and publication are pending.
+
 ## 0.1.0a3 — Public alpha
 
 Agent-led setup entrypoint, explicit release packaging allowlists, nested artifact and history auditing, and documented security boundaries. Existing memory, configuration and provider defaults are unchanged.

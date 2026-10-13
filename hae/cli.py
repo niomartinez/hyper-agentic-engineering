@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 import sys
 
-from . import __version__, fs, install, memory, provider, recall, skills
+from . import __version__, fs, install, memory, provider, recall, skills, obsidian
 
 
 def parser():
@@ -22,6 +22,10 @@ def parser():
     plan.add_argument('--name', required=True)
     plan.add_argument('--scope', required=True, help='Verified owner/client boundary, e.g. personal or client-acme')
     plan.add_argument('--mode', choices=['engineering', 'general'], default='engineering')
+    plan.add_argument('--profile', choices=['core', 'full-team'], default='core',
+                      help='Full team adds the pinned skill library, Obsidian vault and full Ponytail/Caveman defaults')
+    plan.add_argument('--team-source-dir', type=Path,
+                      help='Reviewed offline source snapshot for full-team; otherwise prepare pinned upstream sources')
     plan.add_argument('--agents', default='codex,claude,copilot')
     plan.add_argument('--hooks', action='store_true', help='Opt in to bounded automatic evidence capture')
     plan.add_argument('--style', choices=['existing', 'lean'], default='existing')
@@ -63,6 +67,8 @@ def parser():
     backup = commands.add_parser('backup', help='Explicit local text-only backup; never pushes automatically')
     backup.add_argument('--dest', type=Path, required=True)
     commands.add_parser('catalog', help='Show optional pinned upstream sources; installs nothing')
+    obs = commands.add_parser('obsidian', help='Inspect Obsidian prerequisites or explicitly open its vault manager')
+    obs.add_argument('obsidian_action', choices=['status', 'open'])
     routing = commands.add_parser('skills').add_subparsers(dest='skill_action', required=True)
     route = routing.add_parser('route', help='Find a relevant installed skill without loading the whole library')
     route.add_argument('--task', choices=sorted(skills.routes()), required=True)
@@ -149,7 +155,8 @@ def main(argv=None):
                 vault=args.vault or args.home / 'Documents/Agent Memory', project=args.project,
                 project_id=args.project_id, name=args.name, scope=args.scope, mode=args.mode,
                 agents=args.agents.split(','), hooks=args.hooks, style=args.style,
-                authority=args.memory_authority, memory_enabled=not args.no_memory, delivery=args.delivery)
+                authority=args.memory_authority, memory_enabled=not args.no_memory, delivery=args.delivery,
+                profile=args.profile, team_source_dir=args.team_source_dir)
         elif args.command == 'apply':
             result = install.apply(state, args.plan_id)
         elif args.command == 'doctor':
@@ -161,6 +168,9 @@ def main(argv=None):
             result = json.loads(resource('integrations.lock.json'))
         elif args.command == 'skills':
             result = skills.route(args.home, args.task, args.explicit)
+        elif args.command == 'obsidian':
+            root = vault_for(args, state)
+            result = (obsidian.status if args.obsidian_action == 'status' else obsidian.open_vault)(args.home, root)
         else:
             root = vault_for(args, state)
             if args.command == 'context':

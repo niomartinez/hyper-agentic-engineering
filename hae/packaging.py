@@ -9,10 +9,11 @@ from . import fs
 
 # Explicit shipping boundary: an untracked file must never become a release asset.
 RUNTIME_MODULES = ('__init__.py', '__main__.py', 'cli.py', 'commands.py', 'fs.py',
-                   'install.py', 'memory.py', 'packaging.py', 'provider.py', 'recall.py', 'skills.py')
+                   'install.py', 'memory.py', 'packaging.py', 'provider.py', 'recall.py', 'skills.py',
+                   'team.py', 'obsidian.py')
 RESOURCE_FILES = ('LICENSE', 'engineering.md', 'general.md', 'hae-engineering.md',
                   'hae-memory.md', 'hae-setup.md', 'integrations.lock.json', 'packets.md',
-                  'routes.json', 'vault.md', 'workflows.md')
+                  'routes.json', 'vault.md', 'workflows.md', 'team-skills.lock.json')
 
 SKILL_RESOURCES = {
     'hae-setup': {'SKILL.md': 'hae-setup.md', 'references/packets.md': 'packets.md'},

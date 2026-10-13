@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hyper-agentic-engineering"
-version = "0.1.0a3"
+version = "0.1.0a4.dev0"
 description = "Portable memory, lean context, and reliable handoffs for coding agents"
 requires-python = ">=3.11"
 license = {text = "MIT"}

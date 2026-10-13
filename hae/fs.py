@@ -48,10 +48,12 @@ def read(path, limit=8 * 1024 * 1024):
     return data
 
 
-def write(path, data, expected):
+def write(path, data, expected, *, mode=None, expected_mode=None):
     path = checked(path)
     if digest(read(path)) != expected:
         raise Conflict(f'File changed since review: {path}')
+    if mode is not None and (stat.S_IMODE(path.stat().st_mode) if path.exists() else None) != expected_mode:
+        raise Conflict(f'File permissions changed since review: {path}')
     path.parent.mkdir(parents=True, exist_ok=True)
     checked(path)
     fd, temporary = tempfile.mkstemp(prefix='.hae-', dir=path.parent)
@@ -62,8 +64,10 @@ def write(path, data, expected):
             os.fsync(stream.fileno())
         if digest(read(path)) != expected:
             raise Conflict(f'File changed during write: {path}')
-        mode = stat.S_IMODE(path.stat().st_mode) if path.exists() else 0o600
-        os.chmod(temporary, mode)
+        current_mode = stat.S_IMODE(path.stat().st_mode) if path.exists() else None
+        if mode is not None and current_mode != expected_mode:
+            raise Conflict(f'File permissions changed during write: {path}')
+        os.chmod(temporary, mode if mode is not None else (current_mode if current_mode is not None else 0o600))
         os.replace(temporary, path)
     finally:
         Path(temporary).unlink(missing_ok=True)

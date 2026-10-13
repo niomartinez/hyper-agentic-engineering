@@ -36,6 +36,30 @@ The agent checks existing memory tools before choosing one authority. It never m
 
 Manual setup, upgrades and removal: [technical guide](docs/setup.md). Native Windows: [PowerShell guide](docs/windows.md). Packaged runtime and plugins: [alpha release](https://github.com/niomartinez/hyper-agentic-engineering/releases/tag/v0.1.0-alpha.3).
 
+## Optional full-team setup from development source
+
+The published `v0.1.0-alpha.3` release supports the core setup above. The `full-team` profile is available in development source on `main`; it has no tagged release and has not been validated as stable. Resolve `main` to an exact commit, use a reviewed checkout of that commit, and record any local changes. Do not give the alpha.3 runtime a full-team command.
+
+Open your agent in the actual project you want to work on, then paste:
+
+```text
+Set up Hyper Agentic Engineering full-team for my current project. Read
+https://github.com/niomartinez/hyper-agentic-engineering/blob/main/SETUP.md
+and docs/team-setup.md. Use development source: resolve main to an exact commit,
+clone that commit into an unused tool folder outside my project and memory,
+and verify its origin and commit before running it. Inspect my existing setup.
+Use plan --profile
+full-team for my selected hosts and verified project scope. Preserve my
+instructions, hooks and memory; resolve any competing memory authority first.
+Install the reviewed full skill snapshot and portable team practices, then
+verify save, recall, recovery and skill discovery. Finish Obsidian setup for
+this host, reporting any missing app, registration or optional CLI action.
+Keep hooks, Jev, backups and model changes off. Do not download an app or
+publish anything without authorization.
+```
+
+Full-team includes a pinned manifest matching 96 installed upstream skill entries, with 92 eligible skill bundles materialized by default, a cold skill library, curated host entries, portable adapters, clean Obsidian configuration for a new vault, and Caveman/Ponytail full defaults with session switches. Graphify and the full community Karpathy method remain explicit-request only. Four Anthropic document skills remain catalog references because their license restricts retention outside the service; native document tools handle those tasks. The author's private vault, custom release/account workflows and plugins are excluded. [Full-team setup and boundaries](docs/team-setup.md) explains what is installed and how each host is verified.
+
 ## What happens during work
 
 1. Resolve the current project once. Retrieve only relevant notes.
@@ -55,7 +79,8 @@ Ordinary replies do not need curated notes. Account changes do not establish aut
 | `--mode general` | Project preferences, decisions, sources, deliverables and handoffs |
 | Jev | Experimental BYOK selection/ranking, explicit scopes and spending limits; off by default |
 | Backups | Explicit text-only local archive; existing private Git workflow can be used after review |
-| Upstream skills | Pinned source catalog with licensing notes; no automatic installation or bundled upstream code |
+| Core upstream catalog | Pinned source references; core does not install upstream collections |
+| `--profile full-team` | Current-checkout option: reviewed full skill snapshot and portable team defaults; see [team setup](docs/team-setup.md) |
 
 Codex hooks require native trust review. Copilot parent stop events may contain only metadata, so direct checkpoints remain necessary. There is no background generative janitor, transcript importer, dashboard or model override.
 
@@ -72,6 +97,8 @@ memory backend    Explicitly enable Jev or return to local-only mode
 handoff           Write an approved brief inside the mapped project
 backup            Create an explicit text-only local archive
 catalog           Inspect optional upstream sources
+obsidian status   Check the vault and native Obsidian app
+obsidian open     Dispatch native vault manager (current checkout)
 skills route      Select a relevant installed skill, with a local workflow fallback
 rollback          Reverse the latest setup transaction, preserving memory
 uninstall         Remove owned integrations, preserving memory and later edits

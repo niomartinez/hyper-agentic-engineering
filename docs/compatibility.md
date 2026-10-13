@@ -30,3 +30,11 @@ Official references checked for this implementation:
 - [Copilot plugins](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 - [Cowork plugins](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 - [Cowork project memory](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+
+## Full-team development option
+
+The new full-team profile is not included in the published alpha.3 evidence or release. Its manifest, source materialization, portable adapters and native Obsidian actions need their own checks. Existing core CI results do not establish live discovery of all 96 upstream entries, working third-party dependencies, authenticated plugin access or native Obsidian acceptance on every OS.
+
+A cold library keeps the complete installed snapshot available without loading every skill into each conversation. Curated host entries expose the supported routing surface; check the selected host's actual discovery after installation and restart if needed. Custom agent homes, cloud variants and Cowork still need explicit validation. Local installation does not synchronize private vaults between developers. Share sanitized repository handoffs for team continuity.
+
+Obsidian configuration, installed app detection, registered-vault opening and optional CLI availability are separate checks. A missing CLI does not block HAE memory save or recall. Report the precise incomplete native action rather than claiming the full host setup succeeded. See [team setup](team-setup.md).

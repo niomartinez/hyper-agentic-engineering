@@ -6,17 +6,27 @@ Start from a reviewed, pinned checkout and Python 3.11+. Run `python3 -m hae --h
 
 On native Windows use `py -3 -m hae --help`; see [PowerShell setup](windows.md). The plan prints commands for the current platform and executable. The core does not require WSL, an administrator shell or execution-policy changes.
 
+## Profiles
+
+`--profile core` is the default. Its published alpha.3 runtime preserves existing style, supports engineering or general mode, and leaves upstream skill installation separate.
+
+`--profile full-team` is an unreleased option in reviewed development source. It installs the full pinned upstream skill snapshot plus portable adapters, enables Caveman/Ponytail full, and prepares a new Obsidian vault. It requires engineering mode and HAE memory; `--no-memory` and general mode are rejected. Read [full-team setup](team-setup.md) before planning. Do not run this flag with the alpha.3 release runtime.
+
 ## Adopt an existing setup
 
 Choose the real project folder, a stable project ID, verified owner/client scope, and a memory folder outside the source repository. Engineering is the default. Select agents with `--agents codex,claude,copilot`; use `--mode general` for non-coding project work.
 
-Engineering includes the [generalized practices and routing skill](engineering.md). Existing style stays in place unless `--style lean` is selected. Installing HAE does not install the optional upstream collections.
+Engineering includes the [generalized practices and routing skill](engineering.md). Existing style stays in place unless `--style lean` is selected. Core setup does not install the optional upstream collections. Full-team explicitly plans the reviewed snapshot.
 
 `plan` reads the relevant files, detects known competing memory and produces a diff, warnings and a plan ID. It only writes a private plan and recovery snapshots. It does not disable other memory products or infer ownership from a login. The detection is bounded, not a universal inventory of every extension.
 
 Inspect the plan. `apply PLAN_ID` checks every original hash before its first write and checks each destination again immediately before replacement. An identical apply or replan changes nothing. Preserve the state directory: it contains recovery snapshots. All agent configuration and snapshots remain local; they are not part of the source repository or text backup.
 
 `doctor` reports configured tool versions, modified owned files and incomplete transactions. Hook trust and actual dispatch remain separate host checks. Restart or open a new session when the host requires it to discover skills.
+
+## Obsidian on the native host
+
+For the new full-team option, run `python3 -m hae --vault <memory-folder> obsidian status` to inspect the native app and selected vault, and `python3 -m hae --vault <memory-folder> obsidian open` to dispatch the native vault manager. Open the selected folder as a vault in its native interface and verify it. Vault configuration does not prove the app is installed or the vault is registered. Follow [team setup](team-setup.md) to complete and verify native registration. HAE never silently downloads Obsidian. Its CLI is optional; save and recall use HAE's Python runtime.
 
 ## Optional hooks and plugins
 

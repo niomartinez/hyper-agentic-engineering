@@ -1,7 +1,7 @@
 {
   "name": "hyper-agentic-engineering",
-  "version": "0.1.0-alpha.3",
-  "description": "Portable memory, lean context and reliable handoffs for coding agents, with an optional general-work mode.",
+  "version": "0.1.0-alpha.4-dev.0",
+  "description": "Portable memory and reliable coding-agent handoffs, with optional full-team skills and Obsidian setup.",
   "author": {
     "name": "Nio Martinez"
   },
@@ -17,6 +17,7 @@
     "capabilities": ["Read", "Write"],
     "defaultPrompt": [
       "Set up HAE for this engineering project.",
+      "Set up HAE full-team for this engineering project.",
       "Set up HAE for general project work."
     ]
   }
