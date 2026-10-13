@@ -30,6 +30,8 @@ The development runtime is `0.1.0a4.dev0`; the plugin manifest is `0.1.0-alpha.4
 
 ## Remaining and next action
 
+Publication follow-up: feature commit `936e869571ab05bbf4507d85298f03e08435fc26` was pushed to public `main` with the owner's explicit authorization. [Initial CI](https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/38391639516) passed four Linux/macOS jobs; both Windows jobs exposed the same fixture construction issue. Python's `ZipInfo` normalized the malicious test backslash before serialization. The follow-up explicitly serializes the raw fixture name and adds a Windows-normalization regression; the installer already validates the raw archive name. Inspect the follow-up commit's native matrix before making broader support claims.
+
 Check the native CI matrix triggered by the authorized source push and record its result. Tagged release publication remains a separate action requiring owner authorization. Each consenting developer must verify live native skill discovery, registered Obsidian vault opening and any optional CLI setup. Tests mock native opens; no live model-session acceptance is claimed. Cowork full-team remains unsupported. Provider use, capture hooks, backups, account plugins and model settings remain unchanged by this option.
 
 Use a reviewed current checkout/runtime for full-team; published alpha.3 can only perform core setup. Obsidian app installation uses its official channel with applicable authorization. Memory itself requires no Obsidian app, paid provider or secondary memory model.

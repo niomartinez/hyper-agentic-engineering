@@ -175,6 +175,8 @@ def _archive_files(repo, data):
             selected, paths, expanded = {}, set(), 0
             wanted = {f['path']: f for f in _eligible(repo)}
             for info in members:
+                # Validate archive spelling before ZipInfo's platform-specific
+                # separator normalization or NUL truncation can hide it.
                 _path(info.orig_filename.rstrip('/') if info.is_dir() else info.orig_filename)
                 name = info.filename.rstrip('/') if info.is_dir() else info.filename
                 _path(name)

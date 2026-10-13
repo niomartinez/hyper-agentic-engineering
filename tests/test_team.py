@@ -44,6 +44,9 @@ def archive_bytes(extra=None, content=CONTENT, include_asset=True):
         if extra:
             name, data, mode = extra
             info = zipfile.ZipInfo(name)
+            # ZipInfo normalizes Windows separators at construction. Preserve
+            # the malicious archive spelling so the fixture tests the reader.
+            info.filename = name
             info.external_attr = mode << 16
             archive.writestr(info, data)
     return output.getvalue()
@@ -142,6 +145,19 @@ class TeamTests(unittest.TestCase):
             with self.subTest(name=extra[0]):
                 with self.assertRaises(fs.Conflict):
                     team._archive_files(self.lock['repositories'][0], archive_bytes(extra=extra))
+
+    def test_archive_rejects_raw_backslash_after_windows_normalization(self):
+        name = 'skills-' + COMMIT + '/unrelated/x\\y'
+        data = archive_bytes(extra=(name, b'x', stat.S_IFREG))
+        with patch.object(zipfile.os, 'sep', '\\'):
+            with zipfile.ZipFile(io.BytesIO(data)) as archive:
+                member = archive.infolist()[-1]
+                self.assertEqual(member.orig_filename, name)
+                self.assertEqual(member.filename, name.replace('\\', '/'))
+            with self.assertRaisesRegex(fs.Conflict, 'Unsafe team source path'):
+                team._archive_files(self.lock['repositories'][0], data)
+            # Ordinary pinned paths remain valid under the same normalization.
+            self.assertEqual(len(team._archive_files(self.lock['repositories'][0], archive_bytes())), 2)
 
     def test_archive_byte_count_and_expansion_limits(self):
         repo = self.lock['repositories'][0]
