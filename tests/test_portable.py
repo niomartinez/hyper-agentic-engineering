@@ -181,6 +181,20 @@ class PortableTests(unittest.TestCase):
         self.assertEqual(skills.route(self.home, 'karpathy', explicit=True)['selected']['name'], 'karpathy-guidelines')
         self.assertEqual(skills.route(self.home, 'tests')['status'], 'not-found-in-personal-folders')
 
+    def test_graph_docs_and_agent_skill_routes_select_without_explicit_request(self):
+        for name in ['graphify', 'context7', 'security-and-hardening', 'shipping-and-launch']:
+            folder = self.home / '.agents/skills' / name
+            folder.mkdir(parents=True); (folder / 'SKILL.md').write_text('# Synthetic skill', encoding='utf-8')
+        for task, name in [('graph', 'graphify'), ('library-docs', 'context7'), ('security', 'security-and-hardening'),
+                           ('release', 'shipping-and-launch')]:
+            self.assertEqual(skills.route(self.home, task)['selected']['name'], name)
+        self.assertEqual(skills.route(self.home, 'performance')['status'], 'not-found-in-personal-folders')
+        self.assertEqual(skills.route(self.home, 'performance')['optional_source']['repository'],
+                         'https://github.com/addyosmani/agent-skills')
+        self.assertEqual(skills.route(self.home, 'library-docs')['optional_source']['commit'], 'e0041949fdb3b49b304d98715dde35be51b7c3d1')
+        for task in skills.routes():
+            self.assertIn('optional_source', skills.route(self.home, task, explicit=True))
+
     def test_router_finds_categorized_library_without_loading_all_skills(self):
         folder = self.home / '.agents/skill-library/snapshot/matt-skills/skills/engineering/diagnosing-bugs'
         folder.mkdir(parents=True); (folder / 'SKILL.md').write_text('# Synthetic skill', encoding='utf-8')

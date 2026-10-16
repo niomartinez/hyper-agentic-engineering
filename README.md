@@ -54,11 +54,12 @@ instructions, hooks and memory; resolve any competing memory authority first.
 Install the reviewed full skill snapshot and portable team practices, then
 verify save, recall, recovery and skill discovery. Finish Obsidian setup for
 this host, reporting any missing app, registration or optional CLI action.
-Keep hooks, Jev, backups and model changes off. Do not download an app or
+Offer the optional graphify and ctx7 steps in SETUP.md and ask before
+installing anything. Keep hooks, Jev, backups and model changes off. Do not download an app or
 publish anything without authorization.
 ```
 
-Full-team includes a pinned manifest matching 96 installed upstream skill entries, with 92 eligible skill bundles materialized by default, a cold skill library, curated host entries, portable adapters, clean Obsidian configuration for a new vault, and Caveman/Ponytail full defaults with session switches. Graphify and the full community Karpathy method remain explicit-request only. Four Anthropic document skills remain catalog references because their license restricts retention outside the service; native document tools handle those tasks. The author's private vault, custom release/account workflows and plugins are excluded. [Full-team setup and boundaries](docs/team-setup.md) explains what is installed and how each host is verified.
+Full-team includes a pinned manifest matching 123 upstream skill entries across eleven repositories, with 119 eligible skill bundles materialized by default, a cold skill library, curated host entries, portable adapters, clean Obsidian configuration for a new vault, and Caveman/Ponytail full defaults with session switches. Graphify is model-invocable under a graphify-first rule (read or build the repository's local graph before broad file reads), Context7 supplies current library documentation through a pinned `ctx7`, and nine addyosmani agent-skills are task-routed. The full community Karpathy method remains explicit-request only. Optional agent steps in [SETUP.md](SETUP.md) install pinned graphify and ctx7 and, only on request, a hardened MCP-only ICM store; HAE itself installs none of them and writes no MCP configuration. Four Anthropic document skills remain catalog references because their license restricts retention outside the service; native document tools handle those tasks. The author's private vault, custom release/account workflows and plugins are excluded. [Full-team setup and boundaries](docs/team-setup.md) explains what is installed and how each host is verified.
 
 ## What happens during work
 

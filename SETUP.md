@@ -31,7 +31,7 @@ Use the selected interpreter and absolute runtime path. Global flags precede the
 
 Read the exact diff, warnings and conflicts. Give the user a short description of concrete changes. An explicit setup request authorizes the routine reversible installation described here; do not ask them to approve the same work again. Resolve any material scope choice or conflict first. Plans contain local configuration snapshots and must remain private.
 
-For full-team, add `--profile full-team`; it requires engineering mode and HAE memory and rejects general mode or `--no-memory`. Its managed root instructions enable Caveman and Ponytail full with session switches. Read its manifest and exact skill destinations in the plan.
+For full-team, add `--profile full-team`; it requires engineering mode and HAE memory and rejects general mode or `--no-memory`. Its managed root instructions enable Caveman and Ponytail full with session switches and carry the graphify-first, Context7 and ICM rules; the programs those rules use are installed separately (see the toolchain steps below). Read its manifest and exact skill destinations in the plan.
 
 Run `<python> <runtime> apply <plan-id>`, then `doctor` and `context --cwd <project-folder>`, using the same profile/state flags if selected. Do not rewrite configuration outside the installer to bypass a conflict. Do not change the user's model, account, native memory or trust settings.
 
@@ -43,8 +43,35 @@ Finally check native skill discovery in the installed host, where the environmen
 
 For full-team, complete the native Obsidian checks in [team setup](docs/team-setup.md): inspect `obsidian status`, register and open the selected vault when authorized, and verify it in the app. An app download/install is a separate native action, using the official installation channel only with authorization. The optional Obsidian CLI is a separate prerequisite for CLI-specific tasks; HAE memory works without it. Report missing app, registration or CLI actions explicitly.
 
+## Optional full-team toolchain
+
+The full-team instructions and adapters expect three programs: graphify (graphify-first exploration), ctx7 (Context7 documentation lookup) and, only on request, ICM (a secondary MCP store). HAE `plan`/`apply` installs none of them and writes no MCP, hook or global git configuration. These steps are separate agent work: they download and run third-party software from official registries and change the user's global configuration. Do them only when the full-team request includes the toolchain or after the user confirms, report each as done, skipped or blocked, and use the pinned versions below; move to a newer version only after review. Never pipe downloaded text into a shell. Never print or store credentials: logins, passwords and API keys stay with the user. Afterward `doctor` reports whether `graphify` and `ctx7` are on `PATH`; it does not fail when they are absent.
+
+**Graphify (graphify-first).**
+
+1. Install it in an isolated environment at the pinned version: `uv tool install "graphifyy==0.9.92"` (PyPI package `graphifyy`, command `graphify`; `pipx install` with the same pin also works). Add extras such as `[watch]`, `[mcp]`, `[pdf]` or `[office]` only for tasks that need them. Do not use `pip install --break-system-packages`, and do not run `graphify install` or another platform installer: they write skills, instruction blocks and hooks outside HAE's journal.
+2. Set `GRAPHIFY_NO_AUTO_REFRESH=1` in the user's shell profile. Without it, graphify can re-copy a skill folder that an earlier `graphify install` stamped when it first runs after an upgrade, outside HAE's reviewed pins and hash checks.
+3. Add `graphify-out/` to the user's global git excludes file once: the `git config --global --get core.excludesFile` path, or `${XDG_CONFIG_HOME:-~/.config}/git/ignore` (under the user's profile folder on Windows) when that is unset. Graphs are local build output and never belong in a repository.
+4. Build a code-only graph for each repository the user selects with `graphify update <repo>`, run in the main checkout. It is local and deterministic and makes no model calls. Skip folders without code.
+5. Optional automatic updates: run `graphify hook install` only in a repository whose git hooks live in the untracked `.git/hooks` folder (`git rev-parse --git-path hooks` shows where). Skip repositories that use a tracked hooks folder such as `.husky/` or `.githooks/`. Then check `git status` and undo only what graphify added to tracked files, for example its merge-driver line in `.gitattributes`, so the repository is unchanged and the user's other edits stay.
+6. Optional semantic layer: run it through the graphify skill only with the user's authorization. It sends file contents to the configured model provider (model cost, and the content leaves the machine), so exclude media and anything private. The code-only graph is enough for graphify-first.
+
+**Context7 (ctx7).**
+
+1. Install the pinned CLI: `npm install -g ctx7@0.8.0`. Never run `npx ctx7@latest` or install an unpinned latest tag.
+2. Disable telemetry by setting `CTX7_TELEMETRY_DISABLED=1` in the user's shell profile and in each host's environment where it supports one.
+3. Higher rate limits are optional: the user signs in with `ctx7 login` or sets their own `CONTEXT7_API_KEY`. Never ask for or store the key.
+4. Only library names and generic questions leave the machine; see [SECURITY.md](SECURITY.md). If a host already offers a Context7 MCP server or plugin, it can be used under the same rules. HAE does not write MCP configuration; add one with the host's own `mcp add` command only if the user asks.
+
+**ICM (optional secondary store).** Skip this unless the user asks. ICM is an MCP-only store beside the configured memory authority, never a replacement: HAE keeps one memory authority per project.
+
+1. Download the release archive for the platform and `checksums.txt` from the pinned GitHub release (`rtk-ai/icm`, tag `icm-v0.11.4`). Compare the archive's SHA-256 with its `checksums.txt` line, then extract the `icm` binary onto `PATH`. Do not use a `curl | sh` installer.
+2. Never run `icm init`, and never enable its hooks or `consolidate`: they write host configuration and instructions outside HAE's journal.
+3. Before first use, write a hardened configuration at the path `icm --no-embeddings config` prints: `[embeddings] enabled = false`, `[extraction] enabled = false` and `store_raw = false`, `provider = "none"` under both `[extraction.summarizer]` and `[consolidate.summarizer]`, and `[memory] auto_consolidate_enabled = false`. Search is then keyword-only, with no model call or embedding download.
+4. Register the server with each selected host through that host's own command, with `ICM_NO_EMBEDDINGS=1` in its environment: `claude mcp add icm --scope user -e ICM_NO_EMBEDDINGS=1 -- icm --no-embeddings serve --compact`, `codex mcp add icm --env ICM_NO_EMBEDDINGS=1 -- icm --no-embeddings serve --compact`, `copilot mcp add icm --env ICM_NO_EMBEDDINGS=1 -- icm --no-embeddings serve --compact`, or the host's settings for VS Code. Never store secrets or raw tool output in it.
+
 ## Completion receipt
 
-Briefly state the release/commit, selected hosts, project/scope, memory location or preserved authority, actual verification results, recovery commands, and any remaining host action. The normal workflow is: relevant recall at task start; approved saves for explicit memories, meaningful milestones and cutoffs; sanitized repository handoffs for other people. No per-reply curation or generative memory worker is needed.
+Briefly state the release/commit, selected hosts, project/scope, memory location or preserved authority, actual verification results, recovery commands, any toolchain step done, skipped or blocked, and any remaining host action. The normal workflow is: relevant recall at task start; approved saves for explicit memories, meaningful milestones and cutoffs; sanitized repository handoffs for other people. No per-reply curation or generative memory worker is needed.
 
 For upgrades/removal read [setup and recovery](docs/setup.md). For privacy boundaries read [SECURITY.md](SECURITY.md). The toolkit adds local continuity; it does not provide a sandbox, encrypt notes, grant cloud agents access to a Mac, or prove that an agent followed its instructions.

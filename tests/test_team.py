@@ -137,7 +137,6 @@ class TeamTests(unittest.TestCase):
         prefix = 'skills-' + COMMIT + '/'
         cases = [('outside/../../attack', b'x', stat.S_IFREG),
                  ('/absolute', b'x', stat.S_IFREG),
-                 (prefix + 'unrelated/link', b'../../outside', stat.S_IFLNK),
                  (prefix + 'skills/demo/SKILL.md', CONTENT, stat.S_IFREG),
                  (prefix + 'unrelated/COn.txt', b'x', stat.S_IFREG),
                  (prefix + 'unrelated/x\\y', b'x', stat.S_IFREG)]
@@ -145,6 +144,25 @@ class TeamTests(unittest.TestCase):
             with self.subTest(name=extra[0]):
                 with self.assertRaises(fs.Conflict):
                     team._archive_files(self.lock['repositories'][0], archive_bytes(extra=extra))
+
+    def test_unselected_link_is_ignored_but_selected_link_and_special_members_are_refused(self):
+        repo = self.lock['repositories'][0]
+        prefix = 'skills-' + COMMIT + '/'
+        # Upstream repositories can carry a link outside the pinned paths. It is never read or followed.
+        linked = archive_bytes(extra=(prefix + '.tool/skills', b'../skills/', stat.S_IFLNK))
+        self.assertEqual(set(team._archive_files(repo, linked)), {'skills/demo/SKILL.md', 'skills/demo/assets/example.bin'})
+        for name, kind in [(prefix + 'unrelated/pipe', stat.S_IFIFO), (prefix + 'unrelated/dir-link/', stat.S_IFLNK)]:
+            with self.subTest(name=name), self.assertRaisesRegex(fs.Conflict, 'Special'):
+                team._archive_files(repo, archive_bytes(extra=(name, b'', kind)))
+        output = io.BytesIO()
+        with zipfile.ZipFile(output, 'w') as archive:
+            for path, data, kind in [('skills/demo/SKILL.md', b'../outside', stat.S_IFLNK),
+                                     ('skills/demo/assets/example.bin', BINARY, stat.S_IFREG)]:
+                info = zipfile.ZipInfo(prefix + path)
+                info.external_attr = kind << 16
+                archive.writestr(info, data)
+        with self.assertRaisesRegex(fs.Conflict, 'Linked'):
+            team._archive_files(repo, output.getvalue())
 
     def test_archive_rejects_raw_backslash_after_windows_normalization(self):
         name = 'skills-' + COMMIT + '/unrelated/x\\y'
@@ -237,13 +255,52 @@ class TeamManifestExportTests(unittest.TestCase):
                 export(inventory)
 
 
+    def test_export_uses_versioned_snapshot_folders_pins_only_shared_references_and_omits_listed_skills(self):
+        from tools.export_team_manifest import export
+        with tempfile.TemporaryDirectory() as temporary:
+            library = Path(temporary).resolve() / 'private-library'
+            skills = library / 'addyosmani--agent-skills-9.9.9'
+            docs = library / 'upstash--context7'
+            files = {skills / 'skills/demo/SKILL.md': CONTENT, skills / 'references/checklist.md': b'Checklist',
+                     skills / 'commands/run.md': b'Command', skills / 'hooks/hook.sh': b'#!/bin/sh\n',
+                     skills / 'scripts/tool.py': b'print()', skills / 'LICENSE': b'MIT', skills / 'README.md': b'Readme',
+                     docs / 'skills/find-docs/SKILL.md': CONTENT, docs / 'skills/context7-mcp/SKILL.md': b'MCP skill',
+                     docs / 'rules/context7-cli.md': b'Rule', docs / 'LICENSE': b'MIT'}
+            for path, data in files.items():
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(data)
+            def skill(repo, root, name, data):
+                entry = root / 'skills' / name / 'SKILL.md'
+                return {'repo': repo, 'name': name, 'path': str(entry.parent), 'entry_file': str(entry), 'sha256': fs.digest(data)}
+            inventory = Path(temporary).resolve() / 'inventory.json'
+            inventory.write_bytes(fs.json_bytes({
+                'library': str(library),
+                'repositories': [
+                    {'repo': 'addyosmani/agent-skills', 'url': 'https://github.com/addyosmani/agent-skills',
+                     'commit': COMMIT, 'directory': str(skills)},
+                    {'repo': 'upstash/context7', 'url': 'https://github.com/upstash/context7', 'commit': COMMIT[::-1]}],
+                'skills': [skill('addyosmani/agent-skills', skills, 'demo', CONTENT),
+                           skill('upstash/context7', docs, 'find-docs', CONTENT),
+                           skill('upstash/context7', docs, 'context7-mcp', b'MCP skill')]}))
+            lock = export(inventory)
+            self.assertEqual((lock['bundle_count'], lock['eligible_bundle_count']), (2, 2))
+            by_repo = {r['repository']: r for r in lock['repositories']}
+            self.assertEqual({f['path'] for f in by_repo['addyosmani/agent-skills']['files']},
+                             {'skills/demo/SKILL.md', 'references/checklist.md', 'LICENSE', 'README.md'})
+            self.assertEqual([b['name'] for b in by_repo['upstash/context7']['bundles']], ['find-docs'])
+            self.assertEqual({f['path'] for f in by_repo['upstash/context7']['files']}, {'skills/find-docs/SKILL.md', 'LICENSE'})
+            self.assertNotIn(str(library), json.dumps(lock))
+
+
 class PinnedTeamInventoryTests(unittest.TestCase):
     def test_inventory_is_portable_exact_and_limited(self):
         lock = team.manifest()
-        self.assertEqual(lock['bundle_count'], 96)
-        self.assertEqual(lock['eligible_bundle_count'], 92)
-        self.assertEqual(len(lock['repositories']), 9)
-        self.assertEqual(len(team.active_entries()), 8)
+        self.assertEqual(lock['bundle_count'], 123)
+        self.assertEqual(lock['eligible_bundle_count'], 119)
+        self.assertEqual(len(lock['repositories']), 11)
+        self.assertEqual(len(team.active_entries()), 9)
+        summary = team.summary()
+        self.assertEqual((summary['file_count'], summary['total_bytes']), (874, 21031577))
         self.assertEqual({x['name'] for x in lock['excluded']}, {'docx', 'pdf', 'pptx', 'xlsx'})
         serialized = json.dumps(lock)
         self.assertNotIn('/Users/', serialized)
@@ -252,12 +309,47 @@ class PinnedTeamInventoryTests(unittest.TestCase):
         self.assertFalse(any(f['path'].startswith(('engine/', 'proxy/', 'rewriter/')) for f in caveman['files']))
         for host in ['codex', 'claude', 'copilot']:
             entries = team.active_entries(host)
-            self.assertEqual(len(entries), 8)
+            self.assertEqual(len(entries), 9)
             self.assertIn({'codex': 'skill-codex.md', 'claude': 'skill.md', 'copilot': 'skill-copilot.md'}[host], entries['graphify']['path'])
+            self.assertTrue(entries['context7']['path'].endswith('upstash--context7/skills/find-docs/SKILL.md'))
         for entry in team.active_entries().values():
             self.assertTrue(entry['path'].startswith(team.PREFIX + '/'))
         self.assertLess(team.summary()['total_bytes'], team.TOTAL_LIMIT)
 
+    def test_graphify_agent_skills_and_context7_are_pinned_to_reviewed_commits(self):
+        repos = {r['repository']: r for r in team.manifest()['repositories']}
+        self.assertEqual(repos['Graphify-Labs/graphify']['commit'], '86c57be8204673c2a1b9849a3292a7dd3ab373d8')
+        self.assertEqual(repos['addyosmani/agent-skills']['commit'], 'aeac41d4d005999432bb7312f7ff06383a91d59d')
+        self.assertEqual(repos['upstash/context7']['commit'], 'e0041949fdb3b49b304d98715dde35be51b7c3d1')
+        # Provider entry points exist in the pinned source; the private "prepared" copies are not upstream content.
+        graphify = repos['Graphify-Labs/graphify']
+        paths = {f['path'] for f in graphify['files']}
+        self.assertTrue({'graphify/skill.md', 'graphify/skill-codex.md', 'graphify/skill-copilot.md', 'LICENSE', 'NOTICE'} <= paths)
+        self.assertFalse(any(p.startswith('prepared/') for p in paths))
+        agent_skills = repos['addyosmani/agent-skills']
+        self.assertEqual(len(agent_skills['bundles']), 25)
+        self.assertTrue(all(b['eligible'] and b['path'].startswith('skills/') for b in agent_skills['bundles']))
+        self.assertTrue({'LICENSE', 'README.md'} <= {f['path'] for f in agent_skills['files']})
+        for path in (f['path'] for f in agent_skills['files']):
+            self.assertTrue(path in {'LICENSE', 'README.md'} or path.startswith(('skills/', 'references/')), path)
+        self.assertTrue({'references/security-checklist.md', 'references/performance-checklist.md'}
+                        <= {f['path'] for f in agent_skills['files']})
+        context7 = repos['upstash/context7']
+        self.assertEqual({b['name'] for b in context7['bundles']}, {'find-docs', 'context7-cli'})
+        self.assertTrue(all(f['path'] in {'LICENSE', 'README.md'} or f['path'].startswith('skills/') for f in context7['files']))
+        self.assertIn('skills/context7-cli/references/docs.md', {f['path'] for f in context7['files']})
+
+    def test_only_nine_agent_skills_are_routed_and_lifecycle_skills_stay_named_only(self):
+        from hae import skills
+        routed = {name for rule in skills.routes().values() if rule.get('repository') == 'addyosmani/agent-skills'
+                  for name in rule['candidates']}
+        self.assertEqual(routed, {'security-and-hardening', 'performance-optimization', 'observability-and-instrumentation',
+                                  'api-and-interface-design', 'ci-cd-and-automation', 'deprecation-and-migration',
+                                  'documentation-and-adrs', 'source-driven-development', 'shipping-and-launch'})
+        bundles = {b['name'] for r in team.manifest()['repositories'] if r['repository'] == 'addyosmani/agent-skills' for b in r['bundles']}
+        self.assertEqual(len(bundles - routed), 16)
+        self.assertFalse(any(rule.get('explicit_only') for task, rule in skills.routes().items() if task != 'karpathy'))
+        self.assertFalse((bundles - routed) & {c for r in skills.routes().values() for c in r['candidates']})
 
 if __name__ == '__main__':
     unittest.main()

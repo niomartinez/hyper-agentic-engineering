@@ -20,7 +20,10 @@ On Windows, use `py -3 -m hae` instead. No vault is required for routing. It sea
 | Existing UI improvement | Impeccable |
 | Obsidian notes | Obsidian Markdown or CLI, according to the task |
 | Documents, PDFs, spreadsheets, slides | Host-native tools, then a relevant installed document skill |
-| Full community Karpathy guidelines or Graphify | Explicit user request only |
+| Repository exploration (full-team) | Graphify graph first, then targeted reads |
+| Library documentation (full-team) | Context7 through an installed, pinned `ctx7` |
+| Security, performance, observability, API design, CI/CD, migration, documentation, source-driven work, shipping (full-team) | The matching addyosmani agent-skill |
+| Full community Karpathy guidelines | Explicit user request only |
 
 The included practices incorporate the general principles of understanding first, simplicity, focused edits and verified outcomes. In core, full third-party bundles remain optional: the catalog pins sources without installing or executing them. The new [full-team profile](team-setup.md) installs a separately pinned snapshot after plan review; it retains upstream licenses and never executes a skill’s dependency instructions during setup. The Karpathy-inspired collection is community-maintained, not an official Karpathy release. Missing integrations fall back to the included task workflow.
 

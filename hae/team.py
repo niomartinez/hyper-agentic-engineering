@@ -19,6 +19,9 @@ from . import fs
 from .packaging import resource
 
 PREFIX = '.agents/skill-library/hae-team'
+# Reviewed tool versions that SETUP.md installs. Docs and adapters never float to latest.
+GRAPHIFY_VERSION = '0.9.92'
+CTX7_VERSION = '0.8.0'
 FILE_LIMIT = 16 * 1024 * 1024
 TOTAL_LIMIT = 64 * 1024 * 1024
 FILE_COUNT_LIMIT = 5000
@@ -97,7 +100,7 @@ def summary():
 
 
 def active_entries(host='codex'):
-    """The eight curated entry points; the remaining bundles stay library-only."""
+    """The nine curated entry points; the remaining bundles stay library-only."""
     aliases = {'claude-code': 'claude', 'github-copilot': 'copilot'}
     host = aliases.get(host, host)
     if host not in {'codex', 'claude', 'copilot'}:
@@ -105,12 +108,13 @@ def active_entries(host='codex'):
     mapping = {
         'caveman': ('caveman', 'Caveman', 'Terse responses; preserve technical precision and scope.'),
         'ponytail': ('ponytail', 'Ponytail', 'Use the smallest complete change and verify behavior.'),
-        'graphify': ('graphify', 'Graphify', 'Build or query a code knowledge graph when explicitly requested.'),
+        'graphify': ('graphify', 'Graphify', 'Use before exploring any git repository to read or build its knowledge graph, then query the graph before broad file reads.'),
         'design-taste-frontend': ('design-taste-frontend', 'Taste', 'Design new frontend interfaces from scratch.'),
         'impeccable': ('impeccable', 'Impeccable', 'Improve, audit or polish an existing frontend interface.'),
         'karpathy-guidelines': ('karpathy-guidelines', 'Karpathy community', 'Apply community coding guidelines when explicitly requested.'),
         'obsidian-cli': ('obsidian-cli', 'Obsidian', 'Work with an Obsidian vault through its CLI.'),
         'obsidian-markdown': ('obsidian-markdown', 'Obsidian', 'Read and write Obsidian Markdown.'),
+        'context7': ('find-docs', 'Context7', 'Fetch current library, framework, SDK or API documentation through the installed pinned ctx7 CLI. Use when code depends on a specific library API, configuration or version behaviour.'),
     }
     bundles = {b['name']: (r, b) for r in manifest()['repositories'] for b in r['bundles'] if b['eligible']}
     result = {}
@@ -188,10 +192,13 @@ def _archive_files(repo, data):
                 paths.add(name.casefold())
                 mode = info.external_attr >> 16
                 kind = stat.S_IFMT(mode)
-                if (kind not in {0, stat.S_IFREG, stat.S_IFDIR}
-                        or (kind and (kind == stat.S_IFDIR) != info.is_dir())
-                        or info.external_attr & 0x400):
-                    raise fs.Conflict('Linked or special team archive member refused')
+                # Members are never extracted or followed, so an upstream link outside
+                # the pinned paths is harmless. A selected file must be regular.
+                linked = kind == stat.S_IFLNK or bool(info.external_attr & 0x400)
+                if (kind not in {0, stat.S_IFREG, stat.S_IFDIR, stat.S_IFLNK}
+                        or (kind in {stat.S_IFREG, stat.S_IFDIR} and (kind == stat.S_IFDIR) != info.is_dir())
+                        or (linked and info.is_dir())):
+                    raise fs.Conflict('Special team archive member refused')
                 if info.flag_bits & 1 or info.file_size > ARCHIVE_LIMIT or info.file_size < 0:
                     raise fs.Conflict('Unsafe team archive member')
                 expanded += info.file_size
@@ -199,6 +206,8 @@ def _archive_files(repo, data):
                     raise fs.Conflict('Team archive exceeds expanded limit')
                 relative = '/'.join(parts[1:])
                 if relative in wanted and not info.is_dir():
+                    if linked:
+                        raise fs.Conflict('Linked team archive member refused: ' + relative)
                     item = wanted[relative]
                     if info.file_size != item['size']:
                         raise fs.Conflict('Pinned team archive size mismatch: ' + relative)

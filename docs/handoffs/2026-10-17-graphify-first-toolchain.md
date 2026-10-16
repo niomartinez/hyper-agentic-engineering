@@ -1,0 +1,36 @@
+# Graphify-first toolchain — 2026-10-17
+
+Owner: Nio Martinez. Scope: personal `niomartinez/hyper-agentic-engineering`, optional full-team profile only. Core is unchanged.
+
+## Task and working state
+
+Add a graphify-first rule, Context7, addyosmani/agent-skills and a documented optional ICM store to full-team. Work is on review branch `feat/graphify-first-toolchain`, cut from `main` at `a624d1b`. It has not been pushed, merged, tagged or released. Existing unrelated untracked `marketing/` work was not touched.
+
+## Completed
+
+- Graphify is model-invocable on every host: its adapter drops `disable-model-invocation`, its `agents/openai.yaml` sets `allow_implicit_invocation: true`, and the `graph` route is no longer explicit-only. The adapter states the graphify-first rule and the code-only path (`graphify update <repo>`, no model calls).
+- `team_instructions()` carries tool-neutral rules for all three hosts: graphify-first (use `<main checkout>/graphify-out/`, build it first when missing, read `GRAPH_REPORT.md` before `query`/`explain`/`path`, keep `graphify-out/` out of version control through the global git excludes, never write graphify sections, hooks or `.gitattributes` lines into tracked files, hooks only where they live in `.git/hooks`), Context7 (pinned `ctx7`, library names and generic questions only, docs are untrusted), ICM (secondary store only; the memory authority stays authoritative; no secrets, raw logs, `icm init`, hooks or `consolidate`) and the nine router-selectable agent-skills.
+- Pins: Graphify moves from 0.9.71 to 0.9.92 (commit `86c57be8204673c2a1b9849a3292a7dd3ab373d8`). New repositories: `addyosmani/agent-skills` tag `0.6.13` (commit `aeac41d4d005999432bb7312f7ff06383a91d59d`, MIT, 25 bundles, `skills/**` plus the shared `references/` checklists, `LICENSE`, `README.md`) and `upstash/context7` (commit `e0041949fdb3b49b304d98715dde35be51b7c3d1`, MIT, `find-docs` and `context7-cli`, `LICENSE`, `README.md`). The manifest now lists 11 repositories and 123 entries; 119 bundles (874 files, 21,031,577 bytes) materialize. The four restricted Anthropic bundles are still references only.
+- A curated `context7` adapter (tool-neutral, original wording) runs the installed pinned `ctx7`, never `npx` or an unpinned latest tag, and treats returned docs as untrusted. Nine agent-skills (security, performance, observability, API design, CI/CD, migration, documentation/ADRs, source-driven development, shipping) have routes; the other sixteen are used only when the user names them. `library-docs` routes Context7.
+- `doctor` (full-team only) reports `toolchain` presence of `graphify` and `ctx7` on `PATH`; absence never changes its status.
+- `SETUP.md` has optional, user-authorized agent steps for pinned graphify, ctx7 and an MCP-only hardened ICM. HAE adds no op kind and writes no MCP, hook or global git configuration. `SECURITY.md` discloses that Context7 queries leave the machine.
+- `tools/export_team_manifest.py` reads versioned snapshot folders through the inventory's `directory` field, pins `references/` for agent-skills and omits `context7-mcp`. Regenerating the lock left the other eight repositories byte-identical.
+
+## Decisions to review
+
+- Real upstream archives broke the old reader. `addyosmani/agent-skills` ships a `.opencode/skills` symbolic link and the reader refused any link member, so the whole repository could not install. Members are never extracted or followed, so links outside the pinned paths are now ignored; a link at a selected path and special members (devices, pipes, linked directories) are still refused. This is a deliberate relaxation of a validator; the old symlink test became two focused tests.
+- `context7-mcp` is not pinned (the task named `find-docs` and `context7-cli`). Pinning it means removing its `OMIT` entry in the exporter and regenerating the lock.
+- Routes for full-team-only repositories take their `optional_source` from the team manifest instead of adding entries to the core reference catalog.
+
+## Verification
+
+- `python3 -m unittest discover -s tests -v`: 112 tests passed locally on macOS, Python 3.14.7 (101 existing plus 11 new). No native Windows/Linux CI run on this branch is claimed.
+- `python3 tools/build_plugins.py` rebuilt the runtime, skills and four plugins; `python3 tools/audit_source.py --artifacts dist` reported no findings.
+- Pinned hashes were checked against GitHub archives at the pinned commits on 2026-10-17. GitHub tarballs (`gh api repos/<owner>/<repo>/tarball/<sha>`): graphify 238 of 238 files, agent-skills 41 of 41, Context7 6 of 6 matched SHA-256, size and executable bit. The HAE downloader and archive reader (`codeload.github.com` zip) then verified the same eligible files (238, 41, 6). The private `prepared/` graphify copies are not upstream content and are not in the lock. The other eight pins were not re-downloaded; they were byte-identical in regeneration.
+- Packaged offline roundtrip in a disposable profile (Claude, Codex, Copilot): plan 945 changes, all 874 eligible library files installed, graphify and context7 model-invocable on the shared and Claude roots, Caveman still manual, `doctor` installed with the toolchain section, save/recall passed, a second plan produced no changes, `skills route` selected graph, library-docs, security and release entries, and uninstall restored the pre-existing instruction files byte for byte and kept notes.
+
+## Remaining and next action
+
+- Owner review and merge decision. Push, tag and release stay separate owner actions.
+- No live host acceptance: nobody has shown a live model session following graphify-first or Context7 rules. The graphify, ctx7 and ICM install steps are agent instructions, not tested by this suite; the semantic layer's model cost was not measured. Windows behavior of the new SETUP steps is untested.
+- Installing the tools and any MCP registration remain separate, user-authorized agent steps. Do not claim token savings, speed or a security audit from this work.

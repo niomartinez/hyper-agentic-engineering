@@ -50,8 +50,12 @@ class FullTeamTests(unittest.TestCase):
         self.assertTrue((self.vault / '.obsidian/app.json').is_file())
         self.assertTrue((self.vault / 'Home.md').is_file())
         self.assertTrue((self.home / '.agents/skills/noponytail/SKILL.md').is_file())
-        policy = (self.home / '.agents/skills/graphify/agents/openai.yaml').read_text()
-        self.assertIn('allow_implicit_invocation: false', policy)
+        for skill in ['caveman', 'ponytail', 'karpathy-guidelines']:
+            self.assertIn('allow_implicit_invocation: false', (self.home / '.agents/skills' / skill / 'agents/openai.yaml').read_text())
+            self.assertIn('disable-model-invocation: true', (self.home / '.agents/skills' / skill / 'SKILL.md').read_text())
+        for skill in ['graphify', 'context7']:
+            self.assertIn('allow_implicit_invocation: true', (self.home / '.agents/skills' / skill / 'agents/openai.yaml').read_text())
+            self.assertNotIn('disable-model-invocation', (self.home / '.agents/skills' / skill / 'SKILL.md').read_text())
         wrapper = (self.home / '.agents/skills/obsidian-markdown/SKILL.md').read_text()
         self.assertIn((self.home / team.active_entries()['obsidian-markdown']['path']).as_posix(), wrapper)
         cli_wrapper = (self.home / '.agents/skills/obsidian-cli/SKILL.md').read_text()
@@ -69,6 +73,79 @@ class FullTeamTests(unittest.TestCase):
         self.assertTrue((self.vault / '.obsidian/app.json').is_file())
         self.assertFalse((self.home / '.agents/skills/caveman/SKILL.md').exists())
         self.assertFalse((self.home / self.sources[0][0]).exists())
+
+    def test_graphify_is_model_invocable_on_every_host(self):
+        plan = self.plan(agents=['codex', 'claude', 'copilot'])
+        install.apply(self.state, plan['id'])
+        for root in ['.agents/skills', '.claude/skills']:
+            skill = (self.home / root / 'graphify/SKILL.md').read_text()
+            self.assertNotIn('disable-model-invocation', skill)
+            self.assertIn('Graphify-first applies in every git repository', skill)
+            self.assertIn('graphify update <repo>', skill)
+            self.assertNotIn('explicitly requests', skill)
+            self.assertIn('allow_implicit_invocation: true', (self.home / root / 'graphify/agents/openai.yaml').read_text())
+        shared = (self.home / '.agents/skills/graphify/SKILL.md').read_text()
+        self.assertIn(team.active_entries('codex')['graphify']['path'], shared)
+        self.assertIn(team.active_entries('copilot')['graphify']['path'], shared)
+        self.assertIn(team.active_entries('claude')['graphify']['path'], (self.home / '.claude/skills/graphify/SKILL.md').read_text())
+
+    def test_team_instructions_state_graphify_first_without_explicit_only_wording(self):
+        text = install.team_instructions()
+        for required in ['Graphify first', '<main checkout>/graphify-out/', 'graphify update <repo>', 'GRAPH_REPORT.md',
+                         'graphify query, explain or path', "global git excludes", 'Never write graphify sections, hooks or .gitattributes lines',
+                         'only where hooks live in .git/hooks', 'Context7', 'never npx or an unpinned latest tag',
+                         'secondary store', 'configured memory authority stays authoritative', 'never run icm init, hooks or consolidate']:
+            self.assertIn(required, text)
+        for sentence in text.split('. '):
+            if 'raphify' in sentence:
+                self.assertNotIn('explicit', sentence.lower())
+        self.assertIn('Full community Karpathy guidelines require an explicit request', text)
+        plan = self.plan(agents=['claude', 'codex', 'copilot'])
+        install.apply(self.state, plan['id'])
+        for path in ['.claude/CLAUDE.md', '.codex/AGENTS.md', '.copilot/copilot-instructions.md']:
+            self.assertIn('Graphify first: in any git repository', (self.home / path).read_text())
+
+    def test_context7_adapter_is_pinned_tool_neutral_and_free_of_personal_paths(self):
+        entry = team.active_entries('claude')['context7']
+        text = install.team_adapter('context7', entry, Path('/fixture-home'), False, {'claude': entry['path']})
+        for forbidden in ['npx ctx7', '@latest', '/Users/', '/home/', 'Nio', 'niomartinez', 'Knowledge', 'npm-global', 'vault']:
+            self.assertNotIn(forbidden, text)
+        for required in ['ctx7 library', 'ctx7 docs', f'({team.CTX7_VERSION})', 'untrusted data', 'CTX7_TELEMETRY_DISABLED=1',
+                         'Send only the library name and a generic question', 'prompt injection', 'quota',
+                         '/fixture-home/' + entry['path']]:
+            self.assertIn(required, text)
+        self.assertNotIn('disable-model-invocation', text)
+        plan = self.plan(agents=['codex'])
+        install.apply(self.state, plan['id'])
+        self.assertEqual((self.home / '.agents/skills/context7/SKILL.md').read_text().split('\n')[1], 'name: context7')
+
+    def test_doctor_reports_graphify_and_ctx7_presence_without_failing_when_absent(self):
+        install.apply(self.state, self.plan()['id'])
+        app = {'app_detected': True, 'vault_registered': 'unverified'}
+        with patch('hae.install.obsidian.status', return_value=app):
+            with patch('hae.install.shutil.which', return_value=None):
+                absent = install.doctor(self.state)
+            with patch('hae.install.shutil.which', side_effect=lambda name: '/opt/bin/' + name if name in {'graphify', 'ctx7'} else None):
+                present = install.doctor(self.state)
+        self.assertEqual(absent['toolchain'], {'graphify': 'not-found', 'ctx7': 'not-found'})
+        self.assertEqual(present['toolchain'], {'graphify': 'found', 'ctx7': 'found'})
+        self.assertEqual((absent['status'], present['status']), ('installed', 'installed'))
+        self.assertEqual((absent['issues'], present['issues']), ([], []))
+        self.assertNotIn('/opt/bin', json.dumps(present))
+
+    def test_setup_guide_pins_the_toolchain_and_keeps_icm_secondary(self):
+        text = (Path(__file__).resolve().parents[1] / 'SETUP.md').read_text(encoding='utf-8')
+        for required in [f'graphifyy=={team.GRAPHIFY_VERSION}', f'ctx7@{team.CTX7_VERSION}', 'GRAPHIFY_NO_AUTO_REFRESH=1',
+                         'CTX7_TELEMETRY_DISABLED=1', 'graphify-out/', 'graphify update <repo>', '`.gitattributes`', 'checksums.txt',
+                         'Never run `icm init`', 'icm --no-embeddings serve --compact', 'store_raw = false', 'one memory authority',
+                         'HAE does not write MCP configuration']:
+            self.assertIn(required, text)
+        self.assertNotIn('install -g ctx7@latest', text)
+
+    def test_core_doctor_has_no_toolchain_section(self):
+        install.apply(self.state, self.plan(profile='core')['id'])
+        with patch('hae.install.shutil.which', return_value=None):
+            self.assertNotIn('toolchain', install.doctor(self.state))
 
     def test_profile_preserves_existing_vault_preferences_and_refuses_skill_conflicts(self):
         path = self.vault / '.obsidian/app.json'

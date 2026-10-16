@@ -3,7 +3,7 @@ import json
 import itertools
 from collections import deque
 from pathlib import Path
-from . import fs
+from . import fs, team
 from .packaging import resource
 
 
@@ -41,7 +41,11 @@ def route(home, task, explicit=False):
             queue.extend((p, depth + 1) for p in sorted(children[:capacity]) if p.is_dir()
                          and not p.name.startswith('.') and p.name not in {'node_modules', 'scripts', 'references'})
     selected = next(({'name': name, 'entry_file': found[name]} for name in rule['candidates'] if name in found), None)
-    source = next(s for s in json.loads(resource('integrations.lock.json'))['sources'] if s['name'] == rule['family'])
+    source = next((s for s in json.loads(resource('integrations.lock.json'))['sources'] if s['name'] == rule['family']), None)
+    if source is None:
+        # Full-team-only families are pinned in the team manifest, not the core reference catalog.
+        repo = next(r for r in team.manifest()['repositories'] if r['repository'] == rule['repository'])
+        source = {'repository': 'https://github.com/' + repo['archive_repository'], 'commit': repo['commit']}
     return result | {'status': 'installed' if selected else 'not-found-in-personal-folders',
         'selected': selected, 'search_truncated': truncated or bool(queue), 'searched_directories': len(visited),
         'optional_source': {'repository': source['repository'], 'commit': source['commit']},

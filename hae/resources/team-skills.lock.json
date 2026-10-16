@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "bundle_count": 96,
+  "bundle_count": 123,
   "install_prefix": ".agents/skill-library/hae-team",
   "repositories": [
     {
@@ -649,13 +649,13 @@
       "repository": "Graphify-Labs/graphify",
       "archive_repository": "Graphify-Labs/graphify",
       "slug": "Graphify-Labs--graphify",
-      "commit": "d6eaa8aae8df155874ebb1044302c055c286342a",
+      "commit": "86c57be8204673c2a1b9849a3292a7dd3ab373d8",
       "bundles": [
         {
           "name": "graphify",
           "path": "graphify",
           "entry": "graphify/skill-codex.md",
-          "sha256": "086299243bbca0aec77a08222fbecdffe4bedb06c4bb63745915c6e796295113",
+          "sha256": "594991c24b0d8e363a9634d5231ba6ea205097ae09daca618da748ce05985f97",
           "eligible": true,
           "license": "upstream-notices"
         }
@@ -681,8 +681,8 @@
         },
         {
           "path": "README.md",
-          "sha256": "3716e0e3ebf36f023a22d02db5a490ec7d55f00760e9db924ce5df8fafebff3b",
-          "size": 62417,
+          "sha256": "e69b709b0753cb3389d230343d40aa4451814bdb3ceb525f504c5cd46c65cb12",
+          "size": 34777,
           "executable": false
         },
         {
@@ -693,8 +693,8 @@
         },
         {
           "path": "graphify/__main__.py",
-          "sha256": "091de2bb32cce219d9cec6bc9b66e6104f7c16f482cb2224a9370bc5f17295be",
-          "size": 35504,
+          "sha256": "18458340bcec089acbafca3702d6a6f6c0dd420a9ce04bdedf471cf6225c46b5",
+          "size": 48124,
           "executable": false
         },
         {
@@ -705,14 +705,14 @@
         },
         {
           "path": "graphify/affected.py",
-          "sha256": "c679c7e7f8881973e449fd885dd0ccc096dcc074f4c93f43962b1ce957ef77a7",
-          "size": 11835,
+          "sha256": "abde37fcc951a0a22e01bb1197861cac168ecb254d687e35053de5f671fe7dd2",
+          "size": 15596,
           "executable": false
         },
         {
           "path": "graphify/always_on/agents-md.md",
-          "sha256": "6a4a2e13159f2d89a9ab83351766e72ab94de06929d80767ac50913e4350e3a5",
-          "size": 1129,
+          "sha256": "2ba0bd9e19da9d2d63332334b3290b80ab2d155d036f9f14a5aaac66d0347018",
+          "size": 1516,
           "executable": false
         },
         {
@@ -723,14 +723,14 @@
         },
         {
           "path": "graphify/always_on/claude-md.md",
-          "sha256": "5a599e9f148ebbf0a8786c4508c3954daf95d0d74b88223d890dbf37aad23ec6",
-          "size": 772,
+          "sha256": "55189e0bb8f83d9de53de3142fc8702c6ec45d01df3478da4b8224cb0d20d83c",
+          "size": 1159,
           "executable": false
         },
         {
           "path": "graphify/always_on/gemini-md.md",
-          "sha256": "5a599e9f148ebbf0a8786c4508c3954daf95d0d74b88223d890dbf37aad23ec6",
-          "size": 772,
+          "sha256": "55189e0bb8f83d9de53de3142fc8702c6ec45d01df3478da4b8224cb0d20d83c",
+          "size": 1159,
           "executable": false
         },
         {
@@ -747,26 +747,26 @@
         },
         {
           "path": "graphify/analyze.py",
-          "sha256": "e6011dcbb35144134d8ebef12d17ea869e73749e79722caa9527ed30500edd4a",
-          "size": 30579,
+          "sha256": "b52f25c4d021d025d8f6a9f36fad0927b81107d45f2e6216caa8142217568977",
+          "size": 33728,
           "executable": false
         },
         {
           "path": "graphify/benchmark.py",
-          "sha256": "c470b1b4e24c3c08b3867b705b3abd0f36aeaad4284f33645ddce446d523fc02",
-          "size": 5564,
+          "sha256": "a08455d908b4bacf63927ca4eac3396d6294b716ac2db1d920b5235199b92964",
+          "size": 4574,
           "executable": false
         },
         {
           "path": "graphify/build.py",
-          "sha256": "8f4b17391c60331de1875a47d697191d5ebe50011f36d204341f53e60c210eda",
-          "size": 122301,
+          "sha256": "ebe147cd14ee784f118c1b101ab3e1aa60237ec722bbd70aa1830cd2aac70104",
+          "size": 141923,
           "executable": false
         },
         {
           "path": "graphify/cache.py",
-          "sha256": "b630ce0c29cf5c00e2a43a7196492b7531ed905ac48c86f5f42c13e2ce841dbc",
-          "size": 83747,
+          "sha256": "5fc48bed55d2c878545f76c1f2d6b44e694f77819aede845c8e8de45e5296212",
+          "size": 93001,
           "executable": false
         },
         {
@@ -783,14 +783,14 @@
         },
         {
           "path": "graphify/cli.py",
-          "sha256": "1214906629f40b5a57667c946cfc95cb8aafffd616e268a61b48b45c836dbb06",
-          "size": 239129,
+          "sha256": "91fe687e9c0bca2ca3ab4e8429e3e41a66b84635c08ff0463d0c38e14549118c",
+          "size": 265281,
           "executable": false
         },
         {
           "path": "graphify/cluster.py",
-          "sha256": "bfbfeac12c0a59cb7824d081e32a77e7cdcadd5530e9e6d1bf82264b08a1a78f",
-          "size": 18345,
+          "sha256": "7ee257f2023f0f52d0a50a468c1820955168999e5cb451b940a7def4524abdac",
+          "size": 22185,
           "executable": false
         },
         {
@@ -801,32 +801,32 @@
         },
         {
           "path": "graphify/cross_repo_calls.py",
-          "sha256": "ed9abb12f730132d0821f0ddb1e31f6d01c38477964495b8c02a99ecd4703918",
-          "size": 10597,
+          "sha256": "26c3a257e49f8f89e11d8150a6efe399097026051af889f3267fd12c6b08b090",
+          "size": 12010,
           "executable": false
         },
         {
           "path": "graphify/cross_repo_types.py",
-          "sha256": "ea7507dffa16d88049e8a1307c5f3672f20941b093fd9594a9a47a22f224b453",
-          "size": 3394,
+          "sha256": "5e4acb43496cd06a0bbe7fd8db69f40b7487c48c2f7c2248459e5f5cdf7cf626",
+          "size": 3395,
           "executable": false
         },
         {
           "path": "graphify/csharp_dispatch.py",
-          "sha256": "9c67537a297c676f7b736423f854b62a32c686c4cd63e3b1a357116b013ebb7a",
-          "size": 6536,
+          "sha256": "5093ce3b39043a8a19f47b946e3a99193070f33028aeeb883e725db8b0b367b6",
+          "size": 1814,
           "executable": false
         },
         {
           "path": "graphify/dedup.py",
-          "sha256": "7e65caa8ebc393db375e49c89764e6b089a77e88c10b18ff5f37fd440c7d1dfc",
-          "size": 60294,
+          "sha256": "de7c240681d6cf43df27f39727d0894915d25ca7897f4089dfaffa8d1b228060",
+          "size": 79609,
           "executable": false
         },
         {
           "path": "graphify/detect.py",
-          "sha256": "df12ff60dfaca1e9bfabf1fb297179c654f47c285ee5becff2158529c89378c1",
-          "size": 121125,
+          "sha256": "8fafbb924ce0bfd4fda6e7be66cefb9a94a12f00c368b03b8bf85c5058f60970",
+          "size": 134707,
           "executable": false
         },
         {
@@ -837,8 +837,8 @@
         },
         {
           "path": "graphify/export.py",
-          "sha256": "312f4658900e33360e6d23a005ee4ed227a30ae7737bfeba13318f7f16af5576",
-          "size": 59500,
+          "sha256": "2c6add4a6f52a7fbb046b8fdcd526426089ffc03925ec4c4e24f1f1acc3afcf5",
+          "size": 63480,
           "executable": false
         },
         {
@@ -855,20 +855,20 @@
         },
         {
           "path": "graphify/exporters/graphdb.py",
-          "sha256": "e80bb1a706568f85d1e97d72a649c96bdac708c9aa3c1d9ee9a59ad7a2acd0be",
-          "size": 6548,
+          "sha256": "a660d8fc9673f696e32bea8c008c962105526965803f99f1b123b8d01d605517",
+          "size": 8387,
           "executable": false
         },
         {
           "path": "graphify/exporters/html.py",
-          "sha256": "6ec672f45723e56d6eda0d2f4089100a5b1011ccb9fe5694547405ad269d9436",
-          "size": 29285,
+          "sha256": "9361da8b4aed616d52007acb747d5aade2ef7cf88c5e776d21e157a8a9e35eb0",
+          "size": 36205,
           "executable": false
         },
         {
           "path": "graphify/extract.py",
-          "sha256": "740e30487ed79c80319bc60e9053360164757de312a7d5aaddbc7e5fbb254212",
-          "size": 408663,
+          "sha256": "81b1a9c4b67df3cf978bc30e2824c92ced9bbca7fcaf2c4dd7fec58d6c499cf1",
+          "size": 519225,
           "executable": false
         },
         {
@@ -885,224 +885,224 @@
         },
         {
           "path": "graphify/extractors/apex.py",
-          "sha256": "4881d0e160d98d4045cda155cef7e4047d74dd46cd5f20288583bd2776d9ef03",
-          "size": 8519,
+          "sha256": "6bef123a9b5d949785b23326309a0aa32babd19500c5e7e3ec0dc40c3ad02bcb",
+          "size": 8511,
           "executable": false
         },
         {
           "path": "graphify/extractors/base.py",
-          "sha256": "cd11628d3d4c05dcf0df002823712595ba2fac848fa146517a3bf41ff68cc2e8",
-          "size": 4293,
+          "sha256": "ebb5f6fffa319e7c54684c5e2f725a0ea451ccd3916200bc0db4a0d59ddfcb88",
+          "size": 8536,
           "executable": false
         },
         {
           "path": "graphify/extractors/bash.py",
-          "sha256": "1062a69a5bd696149672d95b9128296fe83c5acf8b2b2dccdb1a8fbe190d220d",
-          "size": 30868,
+          "sha256": "0eeb5f18a72d931e186407f54a3a6199f66133e4e54d510f1d281da211c94100",
+          "size": 34011,
           "executable": false
         },
         {
           "path": "graphify/extractors/blade.py",
-          "sha256": "64e388ddd010ddf016ad4423e30a0e6e5e68a6b3a9276269653b93527bcf8f7b",
-          "size": 2611,
+          "sha256": "727bb59244c36e3634b56348e0a39675fe857cc45d6ee793bd71fa6257fda6bf",
+          "size": 3508,
           "executable": false
         },
         {
           "path": "graphify/extractors/cobol.py",
-          "sha256": "7807e29e9e7f4e345bf108fa5edd9a6b5468eaec743acb978b503252ce94fa0b",
-          "size": 10848,
+          "sha256": "37caeb86c222d05051a6132fff1f179543b5dab439f5a67e574cf2adfa8cb6db",
+          "size": 10840,
           "executable": false
         },
         {
           "path": "graphify/extractors/commonlisp.py",
-          "sha256": "bb77c4e0f8c2269cee49ad6a8d7972492023ad4757f0605ad422e00e88a67a09",
-          "size": 21958,
+          "sha256": "85e2f72e9448cd91d956218e5614068b9faa964df103d2bcd031e63ec7bcf7d8",
+          "size": 21985,
           "executable": false
         },
         {
           "path": "graphify/extractors/csharp.py",
-          "sha256": "6f75b10512d1f7bcc51ec24790c6973e2e9356bac92a289f633400f551fb2535",
-          "size": 18655,
+          "sha256": "99a6d6c4ec6d218930b27536c5121d989541ca239f64bbf045aaf25b6f4c240c",
+          "size": 23202,
           "executable": false
         },
         {
           "path": "graphify/extractors/dart.py",
-          "sha256": "4c95d7f78cf9c27ad628f1abf44ad8045fb6b55d793c5bdbd6ae1be939105666",
-          "size": 28020,
+          "sha256": "36766e1f2ed5e2eb968b01e63fcc62258a7a34f0df68f939b43db19632373ed7",
+          "size": 29718,
           "executable": false
         },
         {
           "path": "graphify/extractors/dm.py",
-          "sha256": "f3da427b091028052afb9a7986e9ed16e79c05d5f2cf1638c8a815d3438bf0a4",
-          "size": 19318,
+          "sha256": "96fea4078e02b91671c38090a537588ae68530a4897d23a503b58003b820daea",
+          "size": 19781,
           "executable": false
         },
         {
           "path": "graphify/extractors/elixir.py",
-          "sha256": "6d4aaa32dceb5105ac7d42f6e61ff06c8ee990c4e6e5b23958056b949db3e815",
-          "size": 13636,
+          "sha256": "9eb00c6ebd23ed90c3e656d39e273a40385fdfc0ced36c98eb3455dde6cd6921",
+          "size": 22052,
           "executable": false
         },
         {
           "path": "graphify/extractors/engine.py",
-          "sha256": "e38bf36858655c75df01745f3245d0bb44860c661745e1b09856a9d2a6341e7f",
-          "size": 382977,
+          "sha256": "d431fdc9d777bdb7664df5a22483a521b0a3d3f17b5fe9b4eb9bc6edd47d08cc",
+          "size": 541567,
           "executable": false
         },
         {
           "path": "graphify/extractors/erlang.py",
-          "sha256": "c9eb5f779ad04ecea9c02ca17219d2118fdb4207ef3c7f16ee2909a487377eb4",
-          "size": 12982,
+          "sha256": "74d6e88527f6a06464508aa7c94e53361c561fd270ba3addb06bbb2f2622d55d",
+          "size": 14309,
           "executable": false
         },
         {
           "path": "graphify/extractors/fortran.py",
-          "sha256": "b151c1bf6ee7b285bf88b55aecf5c3a5f89564df1681cda9c034e18b8828ed35",
-          "size": 17256,
+          "sha256": "35ddaef34f93b7701938247f72809d75ad49b74bd092a3517166c7bdf2b56846",
+          "size": 19945,
           "executable": false
         },
         {
           "path": "graphify/extractors/go.py",
-          "sha256": "3d78726e946904b4c450545d18a93f6f97acf3a1a1e66a6d514e05cf163dc77f",
-          "size": 27462,
+          "sha256": "6676f7bbff10166b496ca881adbb07148451b5eefe71e17554e27277ddd3bdbd",
+          "size": 38820,
           "executable": false
         },
         {
           "path": "graphify/extractors/json_config.py",
-          "sha256": "3099dff7f78e044380699138a4087729cca423f423c96fea7ea791fa4c25b599",
-          "size": 11493,
+          "sha256": "d29a0c791a02bf43c8c2ec0e85a2f8194d94f93b3c336eda0ad7c5a879b4056b",
+          "size": 13653,
           "executable": false
         },
         {
           "path": "graphify/extractors/julia.py",
-          "sha256": "f2b4232178b74e9873ad9a09cdd1eaafde018b9db176175c0028279ba99f603c",
-          "size": 17306,
+          "sha256": "97301df214c12675749734346af99460547653121179b0cf4e96fca1deb38156",
+          "size": 23535,
           "executable": false
         },
         {
           "path": "graphify/extractors/markdown.py",
-          "sha256": "e3c84431a678ce5c597f3db88d549b4d65d6d510b0d28551816cfa93a792821b",
-          "size": 22732,
+          "sha256": "0c06e717e15a917d3f4fafa6ae99c43b7c6455210dd4f2f9bec371ff112b1306",
+          "size": 25727,
           "executable": false
         },
         {
           "path": "graphify/extractors/models.py",
-          "sha256": "038cbf04e17aec6dc71d8e6d886ab57fcfeffc36bf8d5d4fb0aeed88a6fc4719",
-          "size": 4626,
+          "sha256": "30b6121cb518764a67da8c8470ff5fd56e583d3cace316c95be8175bd953b7e3",
+          "size": 4634,
           "executable": false
         },
         {
           "path": "graphify/extractors/objc.py",
-          "sha256": "98e868e1d0a55186caa7dbce0f0af1d7aebb8ebaa8a26b8b544acbb91d1c6203",
-          "size": 29837,
+          "sha256": "89db2b667d63d6927094432825726d5950a7d655fdff9fd59fc74159aca00912",
+          "size": 42420,
           "executable": false
         },
         {
           "path": "graphify/extractors/ocaml.py",
-          "sha256": "2f35fb60394b4a73752d99d4a852bba7cdd9d4014071c5bfeb603d21578508df",
-          "size": 16606,
+          "sha256": "3620f208f2ffdd5baf8b751b9ffedabdca628b38168bf7bb06b5d160d17b48f3",
+          "size": 16689,
           "executable": false
         },
         {
           "path": "graphify/extractors/pascal.py",
-          "sha256": "3eae81396a536251c58bcf96d89f33d1583a87a6f4bf55d79289ccccde17e77d",
-          "size": 28794,
+          "sha256": "6a4cdd032f0aa3c536fb823b167abb1d2ecb79fc1c4a38f8f792c3e3f2925812",
+          "size": 30630,
           "executable": false
         },
         {
           "path": "graphify/extractors/pascal_forms.py",
-          "sha256": "ad68d27b5d4680c1d6b172ae17245601910eadc3ccb2c90e581764ad76107013",
-          "size": 6869,
+          "sha256": "67d308befbef676e2f11e15ec69fee1bf520a897fb8807f897174c3e525e43cd",
+          "size": 6861,
           "executable": false
         },
         {
           "path": "graphify/extractors/powershell.py",
-          "sha256": "67f9d1b56019a198ceb15ccfb722ee31f263f051124e496145dea82974b218f8",
-          "size": 24115,
+          "sha256": "b595f10718ca7905f99b6fa9bd6a05eb0d0448bd0d4f7f7c4d5320aa24288584",
+          "size": 29857,
           "executable": false
         },
         {
           "path": "graphify/extractors/r.py",
-          "sha256": "716047e57bb6689423eb0b0c3dffedd278330e778f7d0b4e12787a72278ad2c9",
-          "size": 19783,
+          "sha256": "e38b588a615c39b28bcbbee991d3ab7b9fb11053c34a1a0199000ae9bf8c7e7f",
+          "size": 20919,
           "executable": false
         },
         {
           "path": "graphify/extractors/razor.py",
-          "sha256": "2cb53c62e4a9ccc7fc8e6f3f90e370ed2a9e97e3ccf169aae8a60ef451cb58dc",
-          "size": 7900,
+          "sha256": "e59935a2cc3d9aa7d4ffc7a2a1f2668aff167fdebc342d0bc50936d1ad8ed4ff",
+          "size": 8207,
           "executable": false
         },
         {
           "path": "graphify/extractors/resolution.py",
-          "sha256": "fb1e337225b14d0c442a8ca01b08a1a536b54cb220e34bacc74eaf0a5b3d8455",
-          "size": 171834,
+          "sha256": "5eaa255ecc68c514d8e007d3e0f3398e77eb98b514c60594003289d54c1ca307",
+          "size": 189515,
           "executable": false
         },
         {
           "path": "graphify/extractors/robot.py",
-          "sha256": "5d3adab1d61ee2af37d5c77ee88be399d9271060e72a36b5e332704b01e47980",
-          "size": 11984,
+          "sha256": "c5e97da0552d57d27e02426888966f9f94df2433bc407731e4fb7b5f349092dd",
+          "size": 12040,
           "executable": false
         },
         {
           "path": "graphify/extractors/rust.py",
-          "sha256": "0f79a21f9213ee29cf825971d0df4a0734b2d3c966786e0fec3a3f8ba936855f",
-          "size": 27270,
+          "sha256": "c737b9fc92cad0ad7c937f687466d672258e31168697bd8cd6499245ff55dca4",
+          "size": 47242,
           "executable": false
         },
         {
           "path": "graphify/extractors/sln.py",
-          "sha256": "9b5987dacc793277ba5db7de4187c89a9a83b6f2ba07a90a85734e597112470a",
-          "size": 3934,
+          "sha256": "9d893369fab2635d3aa79d95bee40461927f9d6222c98f873b363099d8c6dce4",
+          "size": 3926,
           "executable": false
         },
         {
           "path": "graphify/extractors/solidity.py",
-          "sha256": "abe14c5784d02cc0d8b6b4533d66bb736e0b8e914ecc8baa5251b58fe90c9e16",
-          "size": 16533,
+          "sha256": "e0fa2a6a1ed0f1833152fe4c9e20b7606f3aa147fdd25cba7da99108fed9a7d5",
+          "size": 29883,
           "executable": false
         },
         {
           "path": "graphify/extractors/sql.py",
-          "sha256": "81c78f9aa8c0919e9c621a5633fc872246f73db1c0e1762bd815023131cc83d1",
-          "size": 39017,
+          "sha256": "1561314cd771b201157787085e0bf7ff578ea709fc1aea9e6b6347f2edb7e980",
+          "size": 40777,
           "executable": false
         },
         {
           "path": "graphify/extractors/terraform.py",
-          "sha256": "1516abe54b424300daee68bcbc9a07059948863aa257395946ef8081b9b14211",
-          "size": 20288,
+          "sha256": "2fa7e53b26fae75270f64352a182254075bf1e7f3cd84ab4867bbc78244fbdf1",
+          "size": 20315,
           "executable": false
         },
         {
           "path": "graphify/extractors/vbnet.py",
-          "sha256": "6a8e93ffe4a47620fb66931c7f668f480b3119b3812e50c14e7a2b60c3a59e78",
-          "size": 16203,
+          "sha256": "60498684b14413b1e8fb6ef9e4f77b3a35cee0b49e3c5f2162ed28a0cda3411f",
+          "size": 17767,
           "executable": false
         },
         {
           "path": "graphify/extractors/verilog.py",
-          "sha256": "f3d8a6ef6fed7eade3b845ff91ec5a0e7100d0afe3794b864e08775868a7b9f4",
-          "size": 16016,
+          "sha256": "5115140749a3e8b10d5d215de894693dd3b0d27069eacb424b65c720f2a999a6",
+          "size": 16043,
           "executable": false
         },
         {
           "path": "graphify/extractors/zig.py",
-          "sha256": "a1c7c9bb72277aee57a39fd97a55359a40cd17a4d61ec401fcd12b4796111111",
-          "size": 7820,
+          "sha256": "0b2460068d7fc8dd02b772181a2e67d40b1bbed4c3226224c540ab3161062cdd",
+          "size": 11451,
           "executable": false
         },
         {
           "path": "graphify/file_slice.py",
-          "sha256": "3d6cd86af63f352792333246a39202d74965b2acf05d600b6e63679517d9216d",
-          "size": 10441,
+          "sha256": "d3b8de5dab2a3ae9d887493600e81181d47bc523264bb44a0a6e7a6bcd5b6b70",
+          "size": 10563,
           "executable": false
         },
         {
           "path": "graphify/global_graph.py",
-          "sha256": "7c3779fc42c0d31d93d6c8dc66eb2e41c5ff5c81b790edc1e83c21dab7afd57d",
-          "size": 7270,
+          "sha256": "d928c1e4f5de47b8cdf8f6bf36f2c95d722ad699af51d77eb12238b18ccb0b62",
+          "size": 7642,
           "executable": false
         },
         {
@@ -1113,8 +1113,8 @@
         },
         {
           "path": "graphify/hooks.py",
-          "sha256": "00b541f24ddfe6d45b7903a21fe0e849cee9b6fb5ff28580b74f27c649cdf975",
-          "size": 43511,
+          "sha256": "1fd7e4a41f5c363bbaa8e596e9eacc1cb604eccca212c566e78b75612e296bfb",
+          "size": 55871,
           "executable": false
         },
         {
@@ -1125,20 +1125,26 @@
         },
         {
           "path": "graphify/ingest.py",
-          "sha256": "24b3f65ce30c977e245473c75b75e12c23b423a83dcb9a318ac72a49d3888df6",
-          "size": 13608,
+          "sha256": "946a2e3073613a399305f2e7bad5089655e96d248fc2ad5a60b0747c78c51232",
+          "size": 13955,
           "executable": false
         },
         {
           "path": "graphify/install.py",
-          "sha256": "2fd6e4e78e40e234af8a2134f67235e89ecaab89007719ce4f989489a6c7c796",
-          "size": 109482,
+          "sha256": "d033e8c375d2eb75d6ae5fd70b4516aac6afa9968f45010505f78041e2eeb0ec",
+          "size": 124862,
+          "executable": false
+        },
+        {
+          "path": "graphify/interface_dispatch.py",
+          "sha256": "ff5362568da42f1f7937ea220f2c0b38e55e6c9e1a973a3be814d0fdf5ac64b7",
+          "size": 8865,
           "executable": false
         },
         {
           "path": "graphify/llm.py",
-          "sha256": "51e31802e36fbb1e6b849661cc79e1cb238c4f8caffaf805592ad0dee21f8a90",
-          "size": 166630,
+          "sha256": "4035915376ee108362c517690d2fbea9f1f197a9d6a9805557639cbf995c58cd",
+          "size": 178188,
           "executable": false
         },
         {
@@ -1149,8 +1155,8 @@
         },
         {
           "path": "graphify/manifest_ingest.py",
-          "sha256": "f03522373429d0a8dd54ea41ffa2dd48939b1dc516098186058fd4d258c50ca0",
-          "size": 12909,
+          "sha256": "c8a70be2f4f2c0569cef7a0fb107667cffa6385d0830042b061fa08e159e8ca4",
+          "size": 13168,
           "executable": false
         },
         {
@@ -1179,8 +1185,8 @@
         },
         {
           "path": "graphify/paths.py",
-          "sha256": "ba3eea308b902e9b1ec55c61e6cd2bb703dae425da9bfc80ccf7f104556d619c",
-          "size": 23470,
+          "sha256": "529cf874f7a990d8f318c8ca343bffced5378a5cff74f31c36404dc609ee5855",
+          "size": 26432,
           "executable": false
         },
         {
@@ -1190,15 +1196,33 @@
           "executable": false
         },
         {
+          "path": "graphify/pi/index.ts",
+          "sha256": "6e0d168f82c80947c8f2724e4e7dff86d664a190cb874736637e2a82b0a0db52",
+          "size": 9564,
+          "executable": false
+        },
+        {
+          "path": "graphify/pi/package.json",
+          "sha256": "a475ce1e81586d4161db72f00a486fadde2be7a9b122880060cf7a6425ce6a17",
+          "size": 233,
+          "executable": false
+        },
+        {
           "path": "graphify/prs.py",
-          "sha256": "0ffa07bb8c480bd8128d0b01e228da2ebd028a499e9d7d8497ef7eddaec26f78",
-          "size": 29865,
+          "sha256": "af03748db52ad14fbd9af3ec29c6a89f0667337c40693ee2dc2c8f3725b0e595",
+          "size": 30887,
           "executable": false
         },
         {
           "path": "graphify/querylog.py",
           "sha256": "953ad5fece9d380795a70e7dda4b72069ed7a57f56d8648fd339fea959a150a4",
           "size": 2841,
+          "executable": false
+        },
+        {
+          "path": "graphify/rcfile.py",
+          "sha256": "8aa3114d6b1c2f571526a04d02192f77cc8a3a2ef4cf4bde91c0664db10bf7f9",
+          "size": 9382,
           "executable": false
         },
         {
@@ -1209,14 +1233,14 @@
         },
         {
           "path": "graphify/report.py",
-          "sha256": "640299b5c634dfe04b20f63698ac623a4289dd85be55b9dcb071d7a045026ce0",
-          "size": 17715,
+          "sha256": "bb9da8e8959bb92b6a309efdd972b0a0292d3cde82b03a6883098f7107738be3",
+          "size": 19246,
           "executable": false
         },
         {
           "path": "graphify/resolver_registry.py",
-          "sha256": "bd5904412417ead6104852c1d79c3e8d1aebb7ab3f80a13330f19be7c18f307b",
-          "size": 3222,
+          "sha256": "23a79bf81b0f66e3999dfd392678650e702abffaa5688ca5dce28c0d32738402",
+          "size": 3396,
           "executable": false
         },
         {
@@ -1245,104 +1269,104 @@
         },
         {
           "path": "graphify/serve.py",
-          "sha256": "a6df71d1c6efd3281d2938f8c234d987ba61a92270db585490688d194b7f6bec",
-          "size": 128336,
+          "sha256": "19a9b82966e69669237c7301fa8a54d508e6bbb567c5b1407c956a0c47e076f3",
+          "size": 143579,
           "executable": false
         },
         {
           "path": "graphify/skill-agents.md",
-          "sha256": "d48013dc2284271397433035307b0cc7dcbe8470572abde60a08403f5a63561c",
-          "size": 41456,
+          "sha256": "00aab8808b468896f12e84ec7703b81e904cef4ee473dd523efb21ed18fbdaff",
+          "size": 43376,
           "executable": false
         },
         {
           "path": "graphify/skill-aider.md",
-          "sha256": "da52aac4dfefd257a913c7557c5916c060563e8a7bc20a8726f40d984b9715aa",
-          "size": 56149,
+          "sha256": "8d55e81ce73f9bf1697981f9569d3c7cfb5b5c23532f137a9c6b5f59a5081f2f",
+          "size": 58785,
           "executable": false
         },
         {
           "path": "graphify/skill-amp.md",
-          "sha256": "d48013dc2284271397433035307b0cc7dcbe8470572abde60a08403f5a63561c",
-          "size": 41456,
+          "sha256": "00aab8808b468896f12e84ec7703b81e904cef4ee473dd523efb21ed18fbdaff",
+          "size": 43376,
           "executable": false
         },
         {
           "path": "graphify/skill-claw.md",
-          "sha256": "d2a94a8b49c04822ed0c924e8a7c3e61fac3caa59e36a91fd028348d4addd41b",
-          "size": 41732,
+          "sha256": "5cb49d000d8c81add200c92083fa98bcb1c2c6cf56f0970a1b4a99c24be08eeb",
+          "size": 43652,
           "executable": false
         },
         {
           "path": "graphify/skill-codex.md",
-          "sha256": "086299243bbca0aec77a08222fbecdffe4bedb06c4bb63745915c6e796295113",
-          "size": 41774,
+          "sha256": "594991c24b0d8e363a9634d5231ba6ea205097ae09daca618da748ce05985f97",
+          "size": 44412,
           "executable": false
         },
         {
           "path": "graphify/skill-copilot.md",
-          "sha256": "d2a94a8b49c04822ed0c924e8a7c3e61fac3caa59e36a91fd028348d4addd41b",
-          "size": 41732,
+          "sha256": "5cb49d000d8c81add200c92083fa98bcb1c2c6cf56f0970a1b4a99c24be08eeb",
+          "size": 43652,
           "executable": false
         },
         {
           "path": "graphify/skill-devin.md",
-          "sha256": "c722e470efbdc6f5fe4caad6a1b3f1b45ee654d6d042acd52e6e0282944f9e19",
-          "size": 63129,
+          "sha256": "877e68eae563bee48d599784c728dd55a56573331fa1e0e9e08318e558d4c949",
+          "size": 65843,
           "executable": false
         },
         {
           "path": "graphify/skill-droid.md",
-          "sha256": "d63e49933fd50b15c8d9c44ec78cf3a5381b1bc60ed1aace8070b33705c6e461",
-          "size": 41456,
+          "sha256": "6832fa7dea7c7124c8e4d43aefbc204ff24cde1135dfc0d7f702be861fd411e9",
+          "size": 43376,
           "executable": false
         },
         {
           "path": "graphify/skill-kilo.md",
-          "sha256": "c5e8b63e9299185cb9fb4d76532530c36dfba8718d6a01c07efe307e4fd3d11d",
-          "size": 42031,
+          "sha256": "01df5a6e3e1f35fc30e56d80ce73fcafac85ccdbe82f1dc0f2c34aa84fddc0eb",
+          "size": 43951,
           "executable": false
         },
         {
           "path": "graphify/skill-kiro.md",
-          "sha256": "d2a94a8b49c04822ed0c924e8a7c3e61fac3caa59e36a91fd028348d4addd41b",
-          "size": 41732,
+          "sha256": "5cb49d000d8c81add200c92083fa98bcb1c2c6cf56f0970a1b4a99c24be08eeb",
+          "size": 43652,
           "executable": false
         },
         {
           "path": "graphify/skill-opencode.md",
-          "sha256": "738a769b0a7c8c30c1211370413c9b6d8f420cb0beb99e14dd6e2559f25f0e0b",
-          "size": 41179,
+          "sha256": "f4dc7e6cd5293bcbe94607a3f9982df7b2278141561cd88bab3f30b4b4a6b047",
+          "size": 43099,
           "executable": false
         },
         {
           "path": "graphify/skill-pi.md",
-          "sha256": "d2a94a8b49c04822ed0c924e8a7c3e61fac3caa59e36a91fd028348d4addd41b",
-          "size": 41732,
+          "sha256": "ccc2e9690b64c9851d8cf947a3c5e9a89fa8aa2226ec54e76f884918e7604677",
+          "size": 43364,
           "executable": false
         },
         {
           "path": "graphify/skill-trae.md",
-          "sha256": "347d68b5bf5fac0953c5aca082783c403f8cf5a8aae105773b243b712a1196c8",
-          "size": 41554,
+          "sha256": "a817b989545118630f794b5e81347a7775797419656f28b1b0fcee782517a004",
+          "size": 43474,
           "executable": false
         },
         {
           "path": "graphify/skill-vscode.md",
-          "sha256": "cda4988c30cb5e8722343385e1604180f6f83b53dd1ee70207d5feb0cb8d2dcc",
-          "size": 41391,
+          "sha256": "c55f6817299d67ac093585cae4472160458f89dc8c6b0732bb32f893814ce692",
+          "size": 43311,
           "executable": false
         },
         {
           "path": "graphify/skill-windows.md",
-          "sha256": "f1a9b4946a2e109985e7d63333efd7a37946150d2c2edc0a42db779d03ea4a5d",
-          "size": 44117,
+          "sha256": "b5a712a308aa0b5269bbf1b6569f3d24d83610eed50c97b1326512c35227885f",
+          "size": 46037,
           "executable": false
         },
         {
           "path": "graphify/skill.md",
-          "sha256": "d2a94a8b49c04822ed0c924e8a7c3e61fac3caa59e36a91fd028348d4addd41b",
-          "size": 41732,
+          "sha256": "5cb49d000d8c81add200c92083fa98bcb1c2c6cf56f0970a1b4a99c24be08eeb",
+          "size": 43652,
           "executable": false
         },
         {
@@ -1353,8 +1377,8 @@
         },
         {
           "path": "graphify/skills/agents/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1377,8 +1401,8 @@
         },
         {
           "path": "graphify/skills/agents/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1389,8 +1413,8 @@
         },
         {
           "path": "graphify/skills/agents/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1401,8 +1425,8 @@
         },
         {
           "path": "graphify/skills/amp/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1425,8 +1449,8 @@
         },
         {
           "path": "graphify/skills/amp/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1437,8 +1461,8 @@
         },
         {
           "path": "graphify/skills/amp/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1449,8 +1473,8 @@
         },
         {
           "path": "graphify/skills/claude/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1473,8 +1497,8 @@
         },
         {
           "path": "graphify/skills/claude/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1485,8 +1509,8 @@
         },
         {
           "path": "graphify/skills/claude/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1497,8 +1521,8 @@
         },
         {
           "path": "graphify/skills/claw/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1521,8 +1545,8 @@
         },
         {
           "path": "graphify/skills/claw/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1533,8 +1557,8 @@
         },
         {
           "path": "graphify/skills/claw/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1545,8 +1569,8 @@
         },
         {
           "path": "graphify/skills/codex/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1569,8 +1593,8 @@
         },
         {
           "path": "graphify/skills/codex/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1581,8 +1605,8 @@
         },
         {
           "path": "graphify/skills/codex/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1593,8 +1617,8 @@
         },
         {
           "path": "graphify/skills/copilot/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1617,8 +1641,8 @@
         },
         {
           "path": "graphify/skills/copilot/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1629,8 +1653,8 @@
         },
         {
           "path": "graphify/skills/copilot/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1641,8 +1665,8 @@
         },
         {
           "path": "graphify/skills/droid/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1665,8 +1689,8 @@
         },
         {
           "path": "graphify/skills/droid/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1677,8 +1701,8 @@
         },
         {
           "path": "graphify/skills/droid/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1689,8 +1713,8 @@
         },
         {
           "path": "graphify/skills/kilo/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1713,8 +1737,8 @@
         },
         {
           "path": "graphify/skills/kilo/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1725,8 +1749,8 @@
         },
         {
           "path": "graphify/skills/kilo/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1737,8 +1761,8 @@
         },
         {
           "path": "graphify/skills/kiro/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1761,8 +1785,8 @@
         },
         {
           "path": "graphify/skills/kiro/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1773,8 +1797,8 @@
         },
         {
           "path": "graphify/skills/kiro/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1785,8 +1809,8 @@
         },
         {
           "path": "graphify/skills/opencode/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1809,8 +1833,8 @@
         },
         {
           "path": "graphify/skills/opencode/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1821,8 +1845,8 @@
         },
         {
           "path": "graphify/skills/opencode/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1833,8 +1857,8 @@
         },
         {
           "path": "graphify/skills/pi/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1857,8 +1881,8 @@
         },
         {
           "path": "graphify/skills/pi/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1869,8 +1893,8 @@
         },
         {
           "path": "graphify/skills/pi/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1881,8 +1905,8 @@
         },
         {
           "path": "graphify/skills/trae/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1905,8 +1929,8 @@
         },
         {
           "path": "graphify/skills/trae/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1917,8 +1941,8 @@
         },
         {
           "path": "graphify/skills/trae/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1929,8 +1953,8 @@
         },
         {
           "path": "graphify/skills/vscode/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -1953,8 +1977,8 @@
         },
         {
           "path": "graphify/skills/vscode/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -1965,8 +1989,8 @@
         },
         {
           "path": "graphify/skills/vscode/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
           "executable": false
         },
         {
@@ -1977,8 +2001,8 @@
         },
         {
           "path": "graphify/skills/windows/references/exports.md",
-          "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
-          "size": 3362,
+          "sha256": "c39a2f8062be9a5ac319220d6e66ca586ed0b0798292b1321206834be74c1b33",
+          "size": 4774,
           "executable": false
         },
         {
@@ -2001,8 +2025,8 @@
         },
         {
           "path": "graphify/skills/windows/references/query.md",
-          "sha256": "e563ddcb1e155aa230f107e5ef9380bc1249c5cd8241128de7ed8a7bd9c20cf5",
-          "size": 13456,
+          "sha256": "e99011beeff0cf40dc1775b1e0cd2eab0e5f950deeeb8353ae01cbe57adbff00",
+          "size": 13724,
           "executable": false
         },
         {
@@ -2013,14 +2037,20 @@
         },
         {
           "path": "graphify/skills/windows/references/update.md",
-          "sha256": "661f559b3ff4f3db7ba47bc2ba1c7e19f1c1d66a36f647e49221eecb174f2228",
-          "size": 10425,
+          "sha256": "c76b855ef9380d766b1a0b271b49bc7b40cf5b5b72558be1a021f99f9a9ea1cc",
+          "size": 11279,
+          "executable": false
+        },
+        {
+          "path": "graphify/swift_dispatch.py",
+          "sha256": "a8c96db90744d4b071531587a448ea2c6d2eb574a3278cb753ab626effd5c116",
+          "size": 2364,
           "executable": false
         },
         {
           "path": "graphify/symbol_resolution.py",
-          "sha256": "2430b652840912a77f9a1a234fa27e6a51a269bc43f810c8574ea826ed1d27fb",
-          "size": 21511,
+          "sha256": "e42da4eec86f364e47be29a4f9779713fad93f683a12cc118e9857861fda8932",
+          "size": 22421,
           "executable": false
         },
         {
@@ -2031,8 +2061,8 @@
         },
         {
           "path": "graphify/tree_html.py",
-          "sha256": "dbd109d344de6a9bbfd3b20c62c91c6e5e7dceaf672d1695ae2985e58892d789",
-          "size": 24061,
+          "sha256": "b913c3ff17d9dff1cd7960b0afd26bd73d09e8e00c7d7d1202f652bc63f1b1c9",
+          "size": 24140,
           "executable": false
         },
         {
@@ -2043,20 +2073,20 @@
         },
         {
           "path": "graphify/watch.py",
-          "sha256": "5ff3267a879f94749d265463f58a3ca96137c5fdd3e68e38feb7c0fba61d1f41",
-          "size": 114023,
+          "sha256": "c4611ae5415ffc3b8addd28c88a801753affc0ffc327ad00434f1883d81b5ed6",
+          "size": 133633,
           "executable": false
         },
         {
           "path": "graphify/wiki.py",
-          "sha256": "5a9ca8f433a3d52b44cd5d2a471c716605fa5487f3220b77587ba6510e40245f",
-          "size": 18407,
+          "sha256": "37d71ee5fe17b389f9b5c389baafdd7e473bc1f2a725e9797360544961d84502",
+          "size": 20221,
           "executable": false
         },
         {
           "path": "pyproject.toml",
-          "sha256": "6e6ba6d1aa5eadd295f5a0faf6da90d70b98eca21725cb8c491c60520f30231b",
-          "size": 8159,
+          "sha256": "b0ea3bafa3f43aa0a1f3414ce17567d1d92210e03964536188996a18659425c8",
+          "size": 9056,
           "executable": false
         }
       ]
@@ -6884,6 +6914,524 @@
           "executable": true
         }
       ]
+    },
+    {
+      "repository": "addyosmani/agent-skills",
+      "archive_repository": "addyosmani/agent-skills",
+      "slug": "addyosmani--agent-skills",
+      "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "bundles": [
+        {
+          "name": "api-and-interface-design",
+          "path": "skills/api-and-interface-design",
+          "entry": "skills/api-and-interface-design/SKILL.md",
+          "sha256": "e83d34f52ff12dd8a7c5134cd7e8140ea4541ec65e204f8a1e4cd366e30c4192",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "browser-testing-with-devtools",
+          "path": "skills/browser-testing-with-devtools",
+          "entry": "skills/browser-testing-with-devtools/SKILL.md",
+          "sha256": "4e3aacd6a380cd25bc6c2d67fdd1c926a9b22535b8a62109ecd33cefd909e3d9",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "ci-cd-and-automation",
+          "path": "skills/ci-cd-and-automation",
+          "entry": "skills/ci-cd-and-automation/SKILL.md",
+          "sha256": "a6ed8ed56456b01ff8314c44eefc69897d9905ae4e06bb2b7036286efb79b5f0",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "code-review-and-quality",
+          "path": "skills/code-review-and-quality",
+          "entry": "skills/code-review-and-quality/SKILL.md",
+          "sha256": "2db1e850379f255fd3091ef278cde24cd6c7d2ba23e360cc52ea522c40d4396e",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "code-simplification",
+          "path": "skills/code-simplification",
+          "entry": "skills/code-simplification/SKILL.md",
+          "sha256": "f0c5ed754057eb0c1e027e2587f59de816651feb5e837242296c43ea21cf621d",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "constraint-driven-development",
+          "path": "skills/constraint-driven-development",
+          "entry": "skills/constraint-driven-development/SKILL.md",
+          "sha256": "06479d4305f286d23cfb99f5dc85695896785269664e1f6a8d800e3b71e70c10",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "context-engineering",
+          "path": "skills/context-engineering",
+          "entry": "skills/context-engineering/SKILL.md",
+          "sha256": "8b736cb9e55b82b265ab6ff78349c0e826e8a6df550deddf665b7fb3ff858b63",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "debugging-and-error-recovery",
+          "path": "skills/debugging-and-error-recovery",
+          "entry": "skills/debugging-and-error-recovery/SKILL.md",
+          "sha256": "21f3960f5d7ae2cc95c40896545004dbbcbbd752ea65fc2d53962554d4174220",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "deprecation-and-migration",
+          "path": "skills/deprecation-and-migration",
+          "entry": "skills/deprecation-and-migration/SKILL.md",
+          "sha256": "6a624f942e09c69863a4219b9bd5d56975026b67b0c70bc83385ffd2120b6142",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "documentation-and-adrs",
+          "path": "skills/documentation-and-adrs",
+          "entry": "skills/documentation-and-adrs/SKILL.md",
+          "sha256": "b60d503925bbaacee7fd63935db70b9ced5b2514ff5a56a672130e01b9690bc5",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "doubt-driven-development",
+          "path": "skills/doubt-driven-development",
+          "entry": "skills/doubt-driven-development/SKILL.md",
+          "sha256": "6fa1fcd8420c28daf7e53c5b08b0f20b907911efd2a6d9bce0b9740da20a4008",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "frontend-ui-engineering",
+          "path": "skills/frontend-ui-engineering",
+          "entry": "skills/frontend-ui-engineering/SKILL.md",
+          "sha256": "29a3e53d57c0a128831a20730ae874a8c4fda40c001fcdc15f8e9ad4b5f72f1b",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "git-workflow-and-versioning",
+          "path": "skills/git-workflow-and-versioning",
+          "entry": "skills/git-workflow-and-versioning/SKILL.md",
+          "sha256": "b7465d187935c52546d39fdc7bd6ac36d94eda25a9500ef8c18b767d2eb116ea",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "idea-refine",
+          "path": "skills/idea-refine",
+          "entry": "skills/idea-refine/SKILL.md",
+          "sha256": "21ef828e3a2144245b67f840cc3805f761e98c9acce9a96670b7cd7441353463",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "incremental-implementation",
+          "path": "skills/incremental-implementation",
+          "entry": "skills/incremental-implementation/SKILL.md",
+          "sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "interview-me",
+          "path": "skills/interview-me",
+          "entry": "skills/interview-me/SKILL.md",
+          "sha256": "ace4b675999bb504593d572e0f73f3d7e803ad6fddf318445598c82c11939db2",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "observability-and-instrumentation",
+          "path": "skills/observability-and-instrumentation",
+          "entry": "skills/observability-and-instrumentation/SKILL.md",
+          "sha256": "e7fcb0820306d46268de9594d676ad98e35040858926c412b7000faa52a61f87",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "performance-optimization",
+          "path": "skills/performance-optimization",
+          "entry": "skills/performance-optimization/SKILL.md",
+          "sha256": "bd36a30e55a5f84329a6977eba5e1ab7654146e71eaba88e34337d4ee020460f",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "planning-and-task-breakdown",
+          "path": "skills/planning-and-task-breakdown",
+          "entry": "skills/planning-and-task-breakdown/SKILL.md",
+          "sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "security-and-hardening",
+          "path": "skills/security-and-hardening",
+          "entry": "skills/security-and-hardening/SKILL.md",
+          "sha256": "2e3fc60eed5aba97fe416f3f3c9317fdb014a682925ec70a733c3ff99e4b9858",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "shipping-and-launch",
+          "path": "skills/shipping-and-launch",
+          "entry": "skills/shipping-and-launch/SKILL.md",
+          "sha256": "726f3e546369db289160b8d42195590f00b6432887e17bf19070dcc9a347fe39",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "source-driven-development",
+          "path": "skills/source-driven-development",
+          "entry": "skills/source-driven-development/SKILL.md",
+          "sha256": "c59faf851377f0eeda45306398d16eb96d77ab1c2fd3e1a7fb58e9a0af33c1e9",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "spec-driven-development",
+          "path": "skills/spec-driven-development",
+          "entry": "skills/spec-driven-development/SKILL.md",
+          "sha256": "c4b97ce3d7f24be0e67fd612c7595f65504872e3a9f8d338d098b2363fdb66ef",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "test-driven-development",
+          "path": "skills/test-driven-development",
+          "entry": "skills/test-driven-development/SKILL.md",
+          "sha256": "a3aa6ba95638497025577469eda10ed17918698209615aeafbc26f131bf2469d",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "using-agent-skills",
+          "path": "skills/using-agent-skills",
+          "entry": "skills/using-agent-skills/SKILL.md",
+          "sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3",
+          "eligible": true,
+          "license": "upstream-notices"
+        }
+      ],
+      "files": [
+        {
+          "path": "LICENSE",
+          "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+          "size": 1068,
+          "executable": false
+        },
+        {
+          "path": "README.md",
+          "sha256": "b74ab722eeee706ff1c5c3ee55f5f2328368ec28c6368900bc80b857b5bc6b72",
+          "size": 25930,
+          "executable": false
+        },
+        {
+          "path": "references/accessibility-checklist.md",
+          "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
+          "size": 5206,
+          "executable": false
+        },
+        {
+          "path": "references/definition-of-done.md",
+          "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+          "size": 3798,
+          "executable": false
+        },
+        {
+          "path": "references/observability-checklist.md",
+          "sha256": "25fcd0e854596a5ab6f11b002050d245bf78f5ae0fcbd1df699b89451ae0e1e8",
+          "size": 5129,
+          "executable": false
+        },
+        {
+          "path": "references/orchestration-patterns.md",
+          "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
+          "size": 18201,
+          "executable": false
+        },
+        {
+          "path": "references/performance-checklist.md",
+          "sha256": "fffc38b8f3b328a973aab8b1a2efdd72b65710d8f4b57f28f8374ddae7f8a88b",
+          "size": 13159,
+          "executable": false
+        },
+        {
+          "path": "references/security-checklist.md",
+          "sha256": "37774056502fe8970dcd2fd27dca5fa31f2a55232649fc3056c89c3af7d62755",
+          "size": 14360,
+          "executable": false
+        },
+        {
+          "path": "references/testing-patterns.md",
+          "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
+          "size": 7460,
+          "executable": false
+        },
+        {
+          "path": "skills/api-and-interface-design/SKILL.md",
+          "sha256": "e83d34f52ff12dd8a7c5134cd7e8140ea4541ec65e204f8a1e4cd366e30c4192",
+          "size": 14886,
+          "executable": false
+        },
+        {
+          "path": "skills/browser-testing-with-devtools/SKILL.md",
+          "sha256": "4e3aacd6a380cd25bc6c2d67fdd1c926a9b22535b8a62109ecd33cefd909e3d9",
+          "size": 14539,
+          "executable": false
+        },
+        {
+          "path": "skills/ci-cd-and-automation/SKILL.md",
+          "sha256": "a6ed8ed56456b01ff8314c44eefc69897d9905ae4e06bb2b7036286efb79b5f0",
+          "size": 11332,
+          "executable": false
+        },
+        {
+          "path": "skills/code-review-and-quality/SKILL.md",
+          "sha256": "2db1e850379f255fd3091ef278cde24cd6c7d2ba23e360cc52ea522c40d4396e",
+          "size": 20976,
+          "executable": false
+        },
+        {
+          "path": "skills/code-simplification/SKILL.md",
+          "sha256": "f0c5ed754057eb0c1e027e2587f59de816651feb5e837242296c43ea21cf621d",
+          "size": 13545,
+          "executable": false
+        },
+        {
+          "path": "skills/constraint-driven-development/SKILL.md",
+          "sha256": "06479d4305f286d23cfb99f5dc85695896785269664e1f6a8d800e3b71e70c10",
+          "size": 21008,
+          "executable": false
+        },
+        {
+          "path": "skills/constraint-driven-development/references/floor-guard.md",
+          "sha256": "59715dc6c3c6c36ec9177f9ced65c379e80a4539b36115456666bfabc43a6a9c",
+          "size": 10681,
+          "executable": false
+        },
+        {
+          "path": "skills/context-engineering/SKILL.md",
+          "sha256": "8b736cb9e55b82b265ab6ff78349c0e826e8a6df550deddf665b7fb3ff858b63",
+          "size": 15486,
+          "executable": false
+        },
+        {
+          "path": "skills/debugging-and-error-recovery/SKILL.md",
+          "sha256": "21f3960f5d7ae2cc95c40896545004dbbcbbd752ea65fc2d53962554d4174220",
+          "size": 10913,
+          "executable": false
+        },
+        {
+          "path": "skills/deprecation-and-migration/SKILL.md",
+          "sha256": "6a624f942e09c69863a4219b9bd5d56975026b67b0c70bc83385ffd2120b6142",
+          "size": 12642,
+          "executable": false
+        },
+        {
+          "path": "skills/documentation-and-adrs/SKILL.md",
+          "sha256": "b60d503925bbaacee7fd63935db70b9ced5b2514ff5a56a672130e01b9690bc5",
+          "size": 10910,
+          "executable": false
+        },
+        {
+          "path": "skills/doubt-driven-development/SKILL.md",
+          "sha256": "6fa1fcd8420c28daf7e53c5b08b0f20b907911efd2a6d9bce0b9740da20a4008",
+          "size": 16647,
+          "executable": false
+        },
+        {
+          "path": "skills/frontend-ui-engineering/SKILL.md",
+          "sha256": "29a3e53d57c0a128831a20730ae874a8c4fda40c001fcdc15f8e9ad4b5f72f1b",
+          "size": 11721,
+          "executable": false
+        },
+        {
+          "path": "skills/git-workflow-and-versioning/SKILL.md",
+          "sha256": "b7465d187935c52546d39fdc7bd6ac36d94eda25a9500ef8c18b767d2eb116ea",
+          "size": 14141,
+          "executable": false
+        },
+        {
+          "path": "skills/idea-refine/SKILL.md",
+          "sha256": "21ef828e3a2144245b67f840cc3805f761e98c9acce9a96670b7cd7441353463",
+          "size": 9253,
+          "executable": false
+        },
+        {
+          "path": "skills/idea-refine/examples.md",
+          "sha256": "563204bfbf2f80a444151695205af4cb759e722b3d1e5460e08f278a69c89ba1",
+          "size": 20284,
+          "executable": false
+        },
+        {
+          "path": "skills/idea-refine/frameworks.md",
+          "sha256": "161ebc18fdf2d996bc62a87a2d747cf1bf53548354f8925de25c732c27f00309",
+          "size": 5404,
+          "executable": false
+        },
+        {
+          "path": "skills/idea-refine/refinement-criteria.md",
+          "sha256": "1ca2973a4d01b5cb37ab7ddb2eff77fa4e792634a33d0ce44961c068fc88d51a",
+          "size": 5738,
+          "executable": false
+        },
+        {
+          "path": "skills/idea-refine/scripts/idea-refine.sh",
+          "sha256": "f02a52408a4218047c032d221483abfbb48d11f090bb4915965c7419bf2e0e47",
+          "size": 342,
+          "executable": true
+        },
+        {
+          "path": "skills/incremental-implementation/SKILL.md",
+          "sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b",
+          "size": 9629,
+          "executable": false
+        },
+        {
+          "path": "skills/interview-me/SKILL.md",
+          "sha256": "ace4b675999bb504593d572e0f73f3d7e803ad6fddf318445598c82c11939db2",
+          "size": 15080,
+          "executable": false
+        },
+        {
+          "path": "skills/observability-and-instrumentation/SKILL.md",
+          "sha256": "e7fcb0820306d46268de9594d676ad98e35040858926c412b7000faa52a61f87",
+          "size": 13948,
+          "executable": false
+        },
+        {
+          "path": "skills/performance-optimization/SKILL.md",
+          "sha256": "bd36a30e55a5f84329a6977eba5e1ab7654146e71eaba88e34337d4ee020460f",
+          "size": 16698,
+          "executable": false
+        },
+        {
+          "path": "skills/performance-optimization/references/optimization-patterns.md",
+          "sha256": "fbf724076ffb8ac1a28e1a2773c0b550f5361090024b2dd32e5a682c69b7945f",
+          "size": 9692,
+          "executable": false
+        },
+        {
+          "path": "skills/planning-and-task-breakdown/SKILL.md",
+          "sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7",
+          "size": 10564,
+          "executable": false
+        },
+        {
+          "path": "skills/security-and-hardening/SKILL.md",
+          "sha256": "2e3fc60eed5aba97fe416f3f3c9317fdb014a682925ec70a733c3ff99e4b9858",
+          "size": 17559,
+          "executable": false
+        },
+        {
+          "path": "skills/security-and-hardening/references/hardening-patterns.md",
+          "sha256": "2e1b93a502b4cdb0258404441f3aab029b0cce4003fbbcc61af9a2de18bab9ab",
+          "size": 13036,
+          "executable": false
+        },
+        {
+          "path": "skills/shipping-and-launch/SKILL.md",
+          "sha256": "726f3e546369db289160b8d42195590f00b6432887e17bf19070dcc9a347fe39",
+          "size": 11515,
+          "executable": false
+        },
+        {
+          "path": "skills/source-driven-development/SKILL.md",
+          "sha256": "c59faf851377f0eeda45306398d16eb96d77ab1c2fd3e1a7fb58e9a0af33c1e9",
+          "size": 10038,
+          "executable": false
+        },
+        {
+          "path": "skills/spec-driven-development/SKILL.md",
+          "sha256": "c4b97ce3d7f24be0e67fd612c7595f65504872e3a9f8d338d098b2363fdb66ef",
+          "size": 13096,
+          "executable": false
+        },
+        {
+          "path": "skills/test-driven-development/SKILL.md",
+          "sha256": "a3aa6ba95638497025577469eda10ed17918698209615aeafbc26f131bf2469d",
+          "size": 16676,
+          "executable": false
+        },
+        {
+          "path": "skills/using-agent-skills/SKILL.md",
+          "sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3",
+          "size": 10446,
+          "executable": false
+        }
+      ]
+    },
+    {
+      "repository": "upstash/context7",
+      "archive_repository": "upstash/context7",
+      "slug": "upstash--context7",
+      "commit": "e0041949fdb3b49b304d98715dde35be51b7c3d1",
+      "bundles": [
+        {
+          "name": "context7-cli",
+          "path": "skills/context7-cli",
+          "entry": "skills/context7-cli/SKILL.md",
+          "sha256": "6b9e87f6e328ed948bfef963cd290304b8145fc425e83eb158052d4cb202f7ac",
+          "eligible": true,
+          "license": "upstream-notices"
+        },
+        {
+          "name": "find-docs",
+          "path": "skills/find-docs",
+          "entry": "skills/find-docs/SKILL.md",
+          "sha256": "8451dc6c6a6af10de717ad61d86b233bb9fe1ce42bf65e16220f30ce3682c8fc",
+          "eligible": true,
+          "license": "upstream-notices"
+        }
+      ],
+      "files": [
+        {
+          "path": "LICENSE",
+          "sha256": "85cfb556dc2b22b55d2565674fcdaac82f3f2f6b7a928d27003132721bb6736c",
+          "size": 1079,
+          "executable": false
+        },
+        {
+          "path": "README.md",
+          "sha256": "8b3e9b0945e016eddf746094ed6b15da082034607cc03c5286f6ec14ca181af9",
+          "size": 9719,
+          "executable": false
+        },
+        {
+          "path": "skills/context7-cli/SKILL.md",
+          "sha256": "6b9e87f6e328ed948bfef963cd290304b8145fc425e83eb158052d4cb202f7ac",
+          "size": 2008,
+          "executable": false
+        },
+        {
+          "path": "skills/context7-cli/references/docs.md",
+          "sha256": "dc66333979c2ec6d825a61d057006519e09bdd614125849eed2e0348da775a2e",
+          "size": 5896,
+          "executable": false
+        },
+        {
+          "path": "skills/context7-cli/references/setup.md",
+          "sha256": "609252501d04e327072ed2f51706f63f43190f50d4bb4408bab75f609265cbbd",
+          "size": 2009,
+          "executable": false
+        },
+        {
+          "path": "skills/find-docs/SKILL.md",
+          "sha256": "8451dc6c6a6af10de717ad61d86b233bb9fe1ce42bf65e16220f30ce3682c8fc",
+          "size": 7881,
+          "executable": false
+        }
+      ]
     }
   ],
   "excluded": [
@@ -6908,7 +7456,7 @@
       "reason": "Pinned upstream license prohibits retaining copies outside Services; use host-native tools."
     }
   ],
-  "eligible_bundle_count": 92,
-  "file_count": 1004,
-  "total_bytes": 23254188
+  "eligible_bundle_count": 119,
+  "file_count": 1056,
+  "total_bytes": 24461032
 }

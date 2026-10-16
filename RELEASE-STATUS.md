@@ -1,5 +1,9 @@
 # Release status
 
+## Review branch — 2026-10-17
+
+`feat/graphify-first-toolchain` (not pushed or merged) extends the optional full-team profile with a graphify-first rule, Graphify 0.9.92, Context7 through a pinned `ctx7`, nine task-routed addyosmani agent-skills and documented optional ICM steps. The manifest now records 123 entries across eleven repositories; 119 eligible bundles install as 874 files. The 112-test suite, package build and source/artifact audit passed locally on macOS; pinned files for the three changed pins matched the GitHub archives at their commits. No native CI run, live host acceptance or tag exists for this branch. See the [toolchain handoff](docs/handoffs/2026-10-17-graphify-first-toolchain.md).
+
 ## Development source — 2026-10-13
 
 Optional full-team setup is implemented at development version `0.1.0a4.dev0`, with pinned installed-source versions, clean Obsidian/HAE memory setup and Caveman/Ponytail full defaults. The manifest records 96 entries; 92 eligible bundles install, with four restricted Anthropic document bundles left as references for native-tool routing. Core setup remains default.

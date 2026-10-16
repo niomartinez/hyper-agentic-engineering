@@ -1,5 +1,7 @@
 # Full-team setup — 2026-10-13
 
+Update 2026-10-17: the pin count, the explicit-only Graphify rule and the 822-file figure below are superseded by [the graphify-first toolchain handoff](2026-10-17-graphify-first-toolchain.md).
+
 Owner: Nio Martinez. Scope: personal `niomartinez/hyper-agentic-engineering`.
 
 ## Task and working state

@@ -84,8 +84,7 @@
       "graphify"
     ],
     "family": "graphify",
-    "workflow": "Architecture and domain boundaries",
-    "explicit_only": true
+    "workflow": "Architecture and domain boundaries"
   },
   "karpathy": {
     "candidates": [
@@ -129,5 +128,86 @@
     "family": "anthropic",
     "workflow": "UI and documents",
     "prefer_host_native": true
+  },
+  "security": {
+    "candidates": [
+      "security-and-hardening"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Review and merge conflicts"
+  },
+  "performance": {
+    "candidates": [
+      "performance-optimization"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Plan and implement"
+  },
+  "observability": {
+    "candidates": [
+      "observability-and-instrumentation"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Delivery and continuity"
+  },
+  "api-design": {
+    "candidates": [
+      "api-and-interface-design"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Architecture and domain boundaries"
+  },
+  "ci-cd": {
+    "candidates": [
+      "ci-cd-and-automation"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Delivery and continuity"
+  },
+  "migration": {
+    "candidates": [
+      "deprecation-and-migration"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Plan and implement"
+  },
+  "docs-adr": {
+    "candidates": [
+      "documentation-and-adrs"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Delivery and continuity"
+  },
+  "source-driven": {
+    "candidates": [
+      "source-driven-development"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Research and prototypes"
+  },
+  "release": {
+    "candidates": [
+      "shipping-and-launch"
+    ],
+    "family": "agent-skills",
+    "repository": "addyosmani/agent-skills",
+    "workflow": "Delivery and continuity"
+  },
+  "library-docs": {
+    "candidates": [
+      "context7",
+      "find-docs"
+    ],
+    "family": "context7",
+    "repository": "upstash/context7",
+    "workflow": "Research and prototypes"
   }
 }

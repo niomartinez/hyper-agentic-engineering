@@ -21,14 +21,20 @@ SIDECARS = {
                                'LICENSING.md', 'TRADEMARKS.md'],
     'Graphify-Labs/graphify': ['pyproject.toml'],
     'pbakaus/impeccable': ['.claude/skills/impeccable', '.github/skills/impeccable'],
+    # Skills link to the shared checklists as ../../references/*.md. Commands,
+    # personas, hooks, scripts and evals stay out of the pin.
+    'addyosmani/agent-skills': ['references'],
 }
 RESTRICTED = {'docx', 'pdf', 'pptx', 'xlsx'}
+# In the private inventory but deliberately not pinned. HAE documents the MCP
+# option instead of shipping its tool-call skill.
+OMIT = {('upstash/context7', 'context7-mcp')}
 
 
 def export(inventory, source_dir=None):
     data = json.loads(fs.read(inventory))
     library = Path(source_dir or data['library'])
-    result = {'schema_version': 1, 'bundle_count': len(data['skills']),
+    result = {'schema_version': 1, 'bundle_count': 0,
               'install_prefix': '.agents/skill-library/hae-team', 'repositories': [],
               'excluded': [{'repository': 'anthropics/skills', 'name': name,
                             'reason': 'Pinned upstream license prohibits retaining copies outside Services; use host-native tools.'}
@@ -36,14 +42,15 @@ def export(inventory, source_dir=None):
                                                                  and s['name'] == name for s in data['skills'])]}
     for repo in data['repositories']:
         slug = repo['repo'].replace('/', '--')
-        root = fs.checked(library / slug)
+        # A pinned snapshot can live in a versioned folder, for example <slug>-1.2.3.
+        original_root = Path(repo.get('directory') or Path(data['library']) / slug)
+        root = fs.checked(library / original_root.relative_to(data['library']))
         selected = set()
         bundles = []
         for skill in data['skills']:
-            if skill['repo'] != repo['repo']:
+            if skill['repo'] != repo['repo'] or (repo['repo'], skill['name']) in OMIT:
                 continue
             # The private prefix is used only to recover the reviewed repo path.
-            original_root = Path(data['library']) / slug
             path = Path(skill['path']).relative_to(original_root)
             entry = Path(skill['entry_file']).relative_to(original_root)
             if fs.digest(fs.read(root / entry)) != skill['sha256']:
@@ -74,6 +81,7 @@ def export(inventory, source_dir=None):
         result['repositories'].append({'repository': repo['repo'], 'archive_repository': canonical_repo,
                                        'slug': slug, 'commit': repo['commit'],
                                        'bundles': sorted(bundles, key=lambda b: b['path']), 'files': files})
+    result['bundle_count'] = sum(len(r['bundles']) for r in result['repositories'])
     result['eligible_bundle_count'] = sum(b['eligible'] for r in result['repositories'] for b in r['bundles'])
     result['file_count'] = sum(len(r['files']) for r in result['repositories'])
     result['total_bytes'] = sum(f['size'] for r in result['repositories'] for f in r['files'])

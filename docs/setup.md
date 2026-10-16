@@ -10,7 +10,7 @@ On native Windows use `py -3 -m hae --help`; see [PowerShell setup](windows.md).
 
 `--profile core` is the default. Its published alpha.3 runtime preserves existing style, supports engineering or general mode, and leaves upstream skill installation separate.
 
-`--profile full-team` is an unreleased option in reviewed development source. It installs the full pinned upstream skill snapshot plus portable adapters, enables Caveman/Ponytail full, and prepares a new Obsidian vault. It requires engineering mode and HAE memory; `--no-memory` and general mode are rejected. Read [full-team setup](team-setup.md) before planning. Do not run this flag with the alpha.3 release runtime.
+`--profile full-team` is an unreleased option in reviewed development source. It installs the full pinned upstream skill snapshot plus portable adapters, enables Caveman/Ponytail full, adds graphify-first and Context7 rules, and prepares a new Obsidian vault. The graphify, ctx7 and optional ICM programs are separate user-authorized steps in `SETUP.md`. It requires engineering mode and HAE memory; `--no-memory` and general mode are rejected. Read [full-team setup](team-setup.md) before planning. Do not run this flag with the alpha.3 release runtime.
 
 ## Adopt an existing setup
 

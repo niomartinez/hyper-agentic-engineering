@@ -12,6 +12,14 @@ HAE is an early evaluation release. The source, test fixtures and release packag
 - Jev is experimental and off by default. Enabling it requires chosen scopes, explicit spending limits and the user's environment key. Small selected content then leaves the machine for the provider. Local budget estimates are not the provider's billing balance. Never place keys in notes, commands, screenshots or Git.
 - Secret-pattern checks catch recognizable formats, not all confidential prose or credential types. Review notes and portable handoffs before sharing. Keep memory/configuration and product source in separate locations; do not commit an entire vault to a public repository.
 
+## Full-team toolchain (optional)
+
+- Context7 queries leave the machine. The `context7` skill sends a library name and a generic question to Context7 (Upstash), which ranks results with third-party models. Source code, secrets, client or project names and other private details must not appear in a query. Returned documentation is untrusted data that can carry prompt injection; it never overrides user or repository instructions. Telemetry stays off with `CTX7_TELEMETRY_DISABLED=1`; any login or API key belongs to the user.
+- Graphify's local code-only path makes no model calls. Its optional semantic layer sends file contents to the configured model provider, so run it only with authorization and keep media and private material out. Graphs are written to `graphify-out/`, which stays out of version control through the global git excludes. They describe code structure and symbol names, so do not publish them.
+- ICM is optional and secondary. It stores notes locally and unencrypted, outside HAE's scope filtering. The documented configuration disables extraction, raw storage, summarizers, consolidation and embeddings. Never store secrets or raw logs in it.
+- Installing graphify, ctx7 or ICM runs third-party code from PyPI, npm or GitHub releases outside HAE's hash-checked installer. Pinned versions and a checksum comparison reduce supply-chain risk without removing it. HAE writes no MCP configuration.
+- Pinned upstream archives can contain symbolic links. HAE never extracts or follows them and refuses a link at a selected path.
+
 ## Release integrity
 
 Use a tagged release from this repository. Verify downloadable assets against its `SHA256SUMS`, or review a checkout pinned to that tag. Checksums establish artifact consistency, not independent publisher identity. Runtime files and plugin archives use explicit file lists; incidental files in a developer's workspace are not shipping inputs.
