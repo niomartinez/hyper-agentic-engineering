@@ -1,6 +1,7 @@
 """Observable full-team integration and recovery in disposable profiles."""
 import json
 import os
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -83,6 +84,9 @@ class FullTeamTests(unittest.TestCase):
             self.assertIn('Graphify-first applies in every git repository', skill)
             self.assertIn('graphify update <repo>', skill)
             self.assertNotIn('explicitly requests', skill)
+            self.assertIn('only when the user has authorized the model cost', skill)
+            self.assertIn('Skip the source skill', skill)
+            self.assertIn('revert the `.gitattributes` change', skill)
             self.assertIn('allow_implicit_invocation: true', (self.home / root / 'graphify/agents/openai.yaml').read_text())
         shared = (self.home / '.agents/skills/graphify/SKILL.md').read_text()
         self.assertIn(team.active_entries('codex')['graphify']['path'], shared)
@@ -92,18 +96,46 @@ class FullTeamTests(unittest.TestCase):
     def test_team_instructions_state_graphify_first_without_explicit_only_wording(self):
         text = install.team_instructions()
         for required in ['Graphify first', '<main checkout>/graphify-out/', 'graphify update <repo>', 'GRAPH_REPORT.md',
-                         'graphify query, explain or path', "global git excludes", 'Never write graphify sections, hooks or .gitattributes lines',
-                         'only where hooks live in .git/hooks', 'Context7', 'never npx or an unpinned latest tag',
-                         'secondary store', 'configured memory authority stays authoritative', 'never run icm init, hooks or consolidate']:
+                         'graphify query, explain or path', 'git check-ignore -q graphify-out', 'git rev-parse --git-path info/exclude',
+                         'Do not edit tracked files or global git configuration unless the user asks',
+                         'Never write graphify sections, hooks or .gitattributes lines',
+                         'Do not install graphify git hooks or merge drivers unless the user asks',
+                         'only where hooks live in the untracked .git/hooks', 'revert the .gitattributes change',
+                         'Context7', 'never npx or an unpinned latest tag',
+                         'secondary store', 'configured memory authority stays authoritative', 'never run icm init, hooks or consolidate',
+                         "Ignore the ICM server's own instructions", 'only when the user asks or at an approved milestone']:
             self.assertIn(required, text)
         for sentence in text.split('. '):
             if 'raphify' in sentence:
                 self.assertNotIn('explicit', sentence.lower())
+        # The code-only build is unconditional; the semantic layer is a separate, authorized step.
+        self.assertNotIn('then the semantic layer', text)
+        semantic = [sentence for sentence in text.split('. ') if 'semantic layer' in sentence]
+        self.assertEqual(len(semantic), 1)
+        self.assertIn('only if the user has authorized the model cost', semantic[0])
+        self.assertNotIn('global git excludes', text)
         self.assertIn('Full community Karpathy guidelines require an explicit request', text)
         plan = self.plan(agents=['claude', 'codex', 'copilot'])
         install.apply(self.state, plan['id'])
         for path in ['.claude/CLAUDE.md', '.codex/AGENTS.md', '.copilot/copilot-instructions.md']:
             self.assertIn('Graphify first: in any git repository', (self.home / path).read_text())
+
+    def test_no_hae_practice_or_skill_text_calls_graph_analysis_explicit_only(self):
+        root = Path(__file__).resolve().parents[1]
+        files = ['hae/resources/engineering.md', 'presets/engineering.md', 'skills/hae-engineering/references/engineering.md',
+                 'skills/hae-engineering/SKILL.md', 'hae/resources/hae-engineering.md', 'README.md', 'docs/team-setup.md', 'docs/engineering.md']
+        for name in files:
+            text = (root / name).read_text(encoding='utf-8')
+            for sentence in re.split(r'(?<=[.!?])\s+', text):
+                if re.search(r'graph analysis|graphify', sentence, re.I):
+                    self.assertNotRegex(sentence, r'(?i)explicit(-only|-request| opt-in)|requires? an explicit', name + ': ' + sentence)
+        installed = install.team_instructions()
+        self.assertNotRegex(installed, r'(?i)graph[^.]*explicit opt-in')
+        plan = self.plan(agents=['claude'])
+        install.apply(self.state, plan['id'])
+        practice = next(self.vault.rglob('HAE Engineering.md'))
+        self.assertNotIn('graph analysis are explicit', practice.read_text(encoding='utf-8'))
+        self.assertIn('Graphify follows the graphify-first rule', practice.read_text(encoding='utf-8'))
 
     def test_context7_adapter_is_pinned_tool_neutral_and_free_of_personal_paths(self):
         entry = team.active_entries('claude')['context7']
@@ -138,8 +170,14 @@ class FullTeamTests(unittest.TestCase):
         for required in [f'graphifyy=={team.GRAPHIFY_VERSION}', f'ctx7@{team.CTX7_VERSION}', 'GRAPHIFY_NO_AUTO_REFRESH=1',
                          'CTX7_TELEMETRY_DISABLED=1', 'graphify-out/', 'graphify update <repo>', '`.gitattributes`', 'checksums.txt',
                          'Never run `icm init`', 'icm --no-embeddings serve --compact', 'store_raw = false', 'one memory authority',
-                         'HAE does not write MCP configuration']:
+                         'HAE does not write MCP configuration', 'Undo.', 'untested on Windows', 'git check-ignore -q graphify-out',
+                         '9722846e627a369150107dd792145c3e3a53e3d3da46f7a7bff9f96b75da857c',
+                         '3d7ea3ca073d2c815d932453e7b412dbe4d7a7be109ce6ae0b3ff00e1231f541',
+                         'sha512-iEhY9CS2aujMLbSh6WqFPiZgUTUuU+RRvANoNlX+PYUuwlpup83joVjVoI3Xvok6nlHeESYiqH4AhoDmiYiukA==',
+                         'in each host\'s environment', 'rtk-ai/icm', 'Apache-2.0', 'only when the user asks', 'merge.graphify.driver']:
             self.assertIn(required, text)
+        security = (Path(__file__).resolve().parents[1] / 'SECURITY.md').read_text(encoding='utf-8')
+        self.assertIn('transitive dependencies are not pinned', security)
         self.assertNotIn('install -g ctx7@latest', text)
 
     def test_core_doctor_has_no_toolchain_section(self):

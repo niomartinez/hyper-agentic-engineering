@@ -151,6 +151,9 @@ class TeamTests(unittest.TestCase):
         # Upstream repositories can carry a link outside the pinned paths. It is never read or followed.
         linked = archive_bytes(extra=(prefix + '.tool/skills', b'../skills/', stat.S_IFLNK))
         self.assertEqual(set(team._archive_files(repo, linked)), {'skills/demo/SKILL.md', 'skills/demo/assets/example.bin'})
+        # Real upstream repositories also ship a root-level link next to the selected files (mattpocock/skills: AGENTS.md -> CLAUDE.md).
+        root_link = archive_bytes(extra=(prefix + 'AGENTS.md', b'CLAUDE.md', stat.S_IFLNK))
+        self.assertEqual(set(team._archive_files(repo, root_link)), {'skills/demo/SKILL.md', 'skills/demo/assets/example.bin'})
         for name, kind in [(prefix + 'unrelated/pipe', stat.S_IFIFO), (prefix + 'unrelated/dir-link/', stat.S_IFLNK)]:
             with self.subTest(name=name), self.assertRaisesRegex(fs.Conflict, 'Special'):
                 team._archive_files(repo, archive_bytes(extra=(name, b'', kind)))

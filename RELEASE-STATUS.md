@@ -2,7 +2,7 @@
 
 ## Review branch — 2026-10-17
 
-`feat/graphify-first-toolchain` (not pushed or merged) extends the optional full-team profile with a graphify-first rule, Graphify 0.9.92, Context7 through a pinned `ctx7`, nine task-routed addyosmani agent-skills and documented optional ICM steps. The manifest now records 123 entries across eleven repositories; 119 eligible bundles install as 874 files. The 112-test suite, package build and source/artifact audit passed locally on macOS; pinned files for the three changed pins matched the GitHub archives at their commits. No native CI run, live host acceptance or tag exists for this branch. See the [toolchain handoff](docs/handoffs/2026-10-17-graphify-first-toolchain.md).
+`feat/graphify-first-toolchain` (not pushed or merged) extends the optional full-team profile with a graphify-first rule, Graphify 0.9.92, Context7 through a pinned `ctx7`, nine task-routed addyosmani agent-skills and documented optional ICM steps. The manifest now records 123 entries across eleven repositories; 119 eligible bundles install as 874 files. The 113-test suite, package build and pattern scan (`tools/audit_source.py`, recognizable patterns only, not a security audit) passed locally on macOS; pinned files for the three changed pins matched the GitHub archives at their commits. No native CI run, live host acceptance or tag exists for this branch. See the [toolchain handoff](docs/handoffs/2026-10-17-graphify-first-toolchain.md).
 
 ## Development source — 2026-10-13
 
