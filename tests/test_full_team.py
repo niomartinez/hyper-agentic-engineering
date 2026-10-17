@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 from hae import fs, install, recall, team
+from hae.packaging import resource
 
 
 class FullTeamTests(unittest.TestCase):
@@ -74,6 +75,39 @@ class FullTeamTests(unittest.TestCase):
         self.assertTrue((self.vault / '.obsidian/app.json').is_file())
         self.assertFalse((self.home / '.agents/skills/caveman/SKILL.md').exists())
         self.assertFalse((self.home / self.sources[0][0]).exists())
+
+    def install_older_lock(self):
+        older = json.dumps(dict(json.loads(resource('team-skills.lock.json')), file_count=1), indent=2) + '\n'
+        with patch.object(install, 'resource', side_effect=lambda name: older if name == 'team-skills.lock.json' else resource(name)):
+            install.apply(self.state, self.plan()['id'])
+        return older.encode()
+
+    def test_upgrade_refreshes_untouched_team_lock_and_rollback_restores_it(self):
+        lock = self.vault / 'System/hae-team-skills.json'
+        older = self.install_older_lock()
+        self.assertEqual(lock.read_bytes(), older)
+        upgrade = self.plan()
+        self.assertEqual([c['path'] for c in upgrade['changes']], [str(lock)])
+        install.apply(self.state, upgrade['id'])
+        self.assertEqual(lock.read_bytes(), resource('team-skills.lock.json').encode())
+        install.rollback(self.state, upgrade['id'])
+        self.assertEqual(lock.read_bytes(), older)
+        install.apply(self.state, self.plan()['id'])
+        self.assertEqual(self.plan()['changes'], [])
+        install.rollback(self.state, uninstall=True)
+        self.assertEqual(lock.read_bytes(), resource('team-skills.lock.json').encode())
+
+    def test_upgrade_preserves_user_edited_team_lock(self):
+        lock = self.vault / 'System/hae-team-skills.json'
+        edited = self.install_older_lock() + b'Team note: pinned for the Q4 audit.\n'
+        lock.write_bytes(edited)
+        upgrade = self.plan()
+        self.assertNotIn(str(lock), [c['path'] for c in upgrade['changes']])
+        self.assertTrue(any('hae-team-skills.json edits are preserved' in str(w) for w in upgrade['warnings']))
+        install.apply(self.state, upgrade['id'])
+        self.assertEqual(lock.read_bytes(), edited)
+        install.rollback(self.state, uninstall=True)
+        self.assertEqual(lock.read_bytes(), edited)
 
     def test_graphify_is_model_invocable_on_every_host(self):
         plan = self.plan(agents=['codex', 'claude', 'copilot'])

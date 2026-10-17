@@ -311,7 +311,16 @@ def create_plan(*, home, state, vault, project, project_id, name, scope, mode='e
             if profile == 'full-team':
                 for relative, content in obsidian.vault_files():
                     data_file(vault / relative, content)
-                data_file(vault / 'System/hae-team-skills.json', resource('team-skills.lock.json').encode())
+                lock_path = vault / 'System/hae-team-skills.json'
+                lock = resource('team-skills.lock.json').encode()
+                current_lock = fs.read(lock_path)
+                if current_lock is None:
+                    add(operation(lock_path, lock, 'data'))
+                elif current_lock == previous_content(state, lock_path):
+                    # The copy mirrors the installed pins, so rollback restores the prior copy.
+                    add(operation(lock_path, lock, 'data', restore=True))
+                elif current_lock != lock:
+                    warnings.append('Existing System/hae-team-skills.json edits are preserved; installed team skills follow the current HAE lock.')
             ignore_path = vault / '.gitignore'
             ignored = '.hae-state/\nSystem/hae-projects.json\nSystem/hae-config.json\nInbox/\n.obsidian/\n.DS_Store'
             ignore = marked(ignore_path, ignored, state)
@@ -502,7 +511,9 @@ def inverse(op):
                 (current == after and current_mode == op['after_mode'])):
             raise fs.Conflict(f'Installed file content or permissions edited; preserved: {path}')
     if op['kind'] == 'data':
-        return current  # Memory, project mappings, and local provider configuration survive removal.
+        # Memory, project mappings, and local provider configuration survive removal.
+        # A refreshed reference copy HAE still owns returns to its prior bytes.
+        return before if op.get('restore') and current == after else current
     if current == before:
         return current
     if current == after:
@@ -563,7 +574,8 @@ def rollback(state, transaction_id=None, uninstall=False):
             for op in reversed(ops):
                 if not op.get('applied') or op.get('reverted'):
                     continue
-                if op['kind'] == 'data':
+                if op['kind'] == 'data' and (uninstall or not op.get('restore')
+                                             or fs.read(op['path']) != decode(op['after'])):
                     preserved.append(op['path'])
                     continue
                 current = fs.read(op['path'])
