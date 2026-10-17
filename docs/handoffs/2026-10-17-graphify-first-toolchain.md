@@ -27,7 +27,7 @@ Add a graphify-first rule, Context7, addyosmani/agent-skills and a documented op
 
 ## Verification
 
-- `python3 -m unittest discover -s tests -v`: 113 tests passed locally on macOS, Python 3.14.7. An independent reviewer also ran the first 112 on Python 3.11 and 3.12. No native Windows/Linux CI run on this branch is claimed.
+- `python3 -m unittest discover -s tests -v`: 113 tests passed locally on macOS, Python 3.14.7. An independent reviewer also ran the first 112 on Python 3.11 and 3.12. Native CI on `5377fe1` (workflow_dispatch, 2026-10-18): all six Verify portable core jobs passed (ubuntu, macOS and Windows on Python 3.11 and 3.12: tests, plugin build and source/artifact audit), https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/39069045718.
 - Two adversarial reviews of `6498b02` found no mechanical defects; the pins verified 11 of 11 against GitHub archives (874 files). Their findings were instruction-content defects, fixed in the follow-up commit: the semantic layer was unconditional, `graphify-out/` depended on a global exclude HAE never sets, hooks were allowed by default, the engineering practice still said graph analysis is an explicit opt-in, ICM's own server text overrode HAE's memory rules, and the SETUP steps lacked artifact digests, an undo path and a host-environment clause. The wheel, sdist and npm digests were re-verified against PyPI and npm on 2026-10-17.
 - `python3 tools/build_plugins.py` rebuilt the runtime, skills and four plugins; `python3 tools/audit_source.py --artifacts dist` reported no findings.
 - Pinned hashes were checked against GitHub archives at the pinned commits on 2026-10-17. GitHub tarballs (`gh api repos/<owner>/<repo>/tarball/<sha>`): graphify 238 of 238 files, agent-skills 41 of 41, Context7 6 of 6 matched SHA-256, size and executable bit. The HAE downloader and archive reader (`codeload.github.com` zip) then verified the same eligible files (238, 41, 6). The private `prepared/` graphify copies are not upstream content and are not in the lock. The other eight pins were not re-downloaded; they were byte-identical in regeneration.
@@ -35,6 +35,6 @@ Add a graphify-first rule, Context7, addyosmani/agent-skills and a documented op
 
 ## Remaining and next action
 
-- Owner review and merge decision. Push, tag and release stay separate owner actions.
+- The branch is pushed to GitHub (owner-authorized, 2026-10-18); `main` is unchanged. Owner review and merge decision remain; tag and release stay separate owner actions.
 - No live host acceptance: nobody has shown a live model session following graphify-first or Context7 rules. The graphify, ctx7 and ICM install steps are agent instructions, not tested by this suite; the semantic layer's model cost was not measured. Windows behavior of the new SETUP steps is untested.
 - Installing the tools and any MCP registration remain separate, user-authorized agent steps. Do not claim token savings, speed or a security audit from this work.
