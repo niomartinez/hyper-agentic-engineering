@@ -1,10 +1,12 @@
 # Release status
 
-## Review branch — 2026-10-17
+## Development source — 2026-10-18
 
-`feat/graphify-first-toolchain` (not pushed or merged) extends the optional full-team profile with a graphify-first rule, Graphify 0.9.92, Context7 through a pinned `ctx7`, nine task-routed addyosmani agent-skills and documented optional ICM steps. The manifest now records 123 entries across eleven repositories; 119 eligible bundles install as 874 files. The 113-test suite, package build and pattern scan (`tools/audit_source.py`, recognizable patterns only, not a security audit) passed locally on macOS; pinned files for the three changed pins matched the GitHub archives at their commits. No native CI run, live host acceptance or tag exists for this branch. See the [toolchain handoff](docs/handoffs/2026-10-17-graphify-first-toolchain.md).
+Merged to public `main` from `feat/graphify-first-toolchain` through PR #1 (2026-10-18). It extends the optional full-team profile with a graphify-first rule, Graphify 0.9.92, Context7 through a pinned `ctx7`, nine task-routed addyosmani agent-skills and documented optional ICM steps. The manifest now records 123 entries across eleven repositories; 119 eligible bundles install as 874 files. The 113-test suite, package build and pattern scan (`tools/audit_source.py`, recognizable patterns only, not a security audit) passed locally and in native CI: all six Windows/macOS/Linux Python 3.11/3.12 jobs passed on each PR head, for example [run 39069045718](https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/39069045718) on `5377fe1` and [run 39071468202](https://github.com/niomartinez/hyper-agentic-engineering/actions/runs/39071468202) on `bc53692`. Every pinned file matched the GitHub archives at its commit. No live host acceptance, tag or release exists. See the [toolchain handoff](docs/handoffs/2026-10-17-graphify-first-toolchain.md).
 
 ## Development source — 2026-10-13
+
+Superseded by the 2026-10-18 entry above (now 123 entries, 119 eligible bundles, 874 files).
 
 Optional full-team setup is implemented at development version `0.1.0a4.dev0`, with pinned installed-source versions, clean Obsidian/HAE memory setup and Caveman/Ponytail full defaults. The manifest records 96 entries; 92 eligible bundles install, with four restricted Anthropic document bundles left as references for native-tool routing. Core setup remains default.
 
